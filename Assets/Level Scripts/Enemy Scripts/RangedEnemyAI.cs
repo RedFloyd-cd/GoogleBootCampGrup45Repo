@@ -48,6 +48,13 @@ public class RangedEnemyAI : MonoBehaviour
         if (projectilePrefab != null && target != null)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, Quaternion.identity);
+
+            // Eğer prefab'e önceden eklemediysen:
+            if (projectile.GetComponent<EnemyProjectile>() == null)
+            {
+                projectile.AddComponent<EnemyProjectile>().damage = damage;
+            }
+
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -55,8 +62,10 @@ public class RangedEnemyAI : MonoBehaviour
                 rb.linearVelocity = dir * projectileSpeed;
             }
         }
+
         Debug.Log($"Ranged düşman ateş etti! {damage} hasar verdi.");
     }
+
 
     // Algılama ve saldırı bölgelerini sahnede görmek için
     void OnDrawGizmosSelected()

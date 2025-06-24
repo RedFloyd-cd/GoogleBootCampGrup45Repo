@@ -47,9 +47,16 @@ public class MeleeEnemyAI : MonoBehaviour
 
     void Attack()
     {
-        // Burada oyuncuya hasar verme kodunu ekleyebilirsin
-        Debug.Log($"Düşman saldırdı! {damage} hasar verdi.");
+        if (target != null)
+        {
+            PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+        }
     }
+
 
     public void TakeDamage(float amount)
     {

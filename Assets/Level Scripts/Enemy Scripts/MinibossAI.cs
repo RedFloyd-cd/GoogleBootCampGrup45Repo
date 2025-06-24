@@ -69,8 +69,14 @@ public class MinibossAI : MonoBehaviour
 
     void MeleeAttack()
     {
-        // Burada oyuncuya yakın dövüş hasarı verebilirsin
-        Debug.Log($"Miniboss melee saldırısı yaptı! {meleeDamage} hasar verdi.");
+        if (target != null)
+        {
+            PlayerHealth ph = target.GetComponent<PlayerHealth>();
+            if (ph != null)
+            {
+                ph.TakeDamage(meleeDamage);
+            }
+        }
     }
 
     void RangedAttack()
@@ -78,6 +84,8 @@ public class MinibossAI : MonoBehaviour
         if (projectilePrefab != null && target != null)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, Quaternion.identity);
+            projectile.AddComponent<EnemyProjectile>().damage = rangedDamage;
+
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -85,8 +93,8 @@ public class MinibossAI : MonoBehaviour
                 rb.linearVelocity = dir * projectileSpeed;
             }
         }
-        Debug.Log($"Miniboss uzaktan saldırı yaptı! {rangedDamage} hasar verdi.");
     }
+
 
     // Algılama ve saldırı bölgelerini sahnede görmek için
     void OnDrawGizmosSelected()
