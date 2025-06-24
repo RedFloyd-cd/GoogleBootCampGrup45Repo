@@ -7,6 +7,8 @@ public class MeleeEnemyAI : MonoBehaviour
     public float attackRange = 2f; // Saldırı menzili
     public float moveSpeed = 3f; // Düşman hareket hızı
     public float attackCooldown = 1.5f; // Saldırılar arası bekleme süresi
+    public float health = 100f; // Düşman canı
+    public float damage = 10f; // Düşman hasarı
 
     private float lastAttackTime;
 
@@ -46,7 +48,22 @@ public class MeleeEnemyAI : MonoBehaviour
     void Attack()
     {
         // Burada oyuncuya hasar verme kodunu ekleyebilirsin
-        Debug.Log("Düşman saldırdı!");
+        Debug.Log($"Düşman saldırdı! {damage} hasar verdi.");
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Düşman öldüğünde yapılacaklar (animasyon, efekt vs.)
+        Destroy(gameObject);
     }
 
     // Algılama ve saldırı bölgelerini sahnede görmek için

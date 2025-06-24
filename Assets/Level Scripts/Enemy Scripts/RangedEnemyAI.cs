@@ -8,6 +8,8 @@ public class RangedEnemyAI : MonoBehaviour
     public float attackCooldown = 1.5f; // Saldırılar arası bekleme süresi
     public GameObject projectilePrefab; // Fırlatılacak mermi prefabı
     public float projectileSpeed = 10f; // Mermi hızı
+    public float health = 80f; // Düşman canı
+    public float damage = 8f; // Düşman hasarı
 
     private float lastAttackTime;
 
@@ -53,7 +55,7 @@ public class RangedEnemyAI : MonoBehaviour
                 rb.linearVelocity = dir * projectileSpeed;
             }
         }
-        Debug.Log("Ranged düşman ateş etti!");
+        Debug.Log($"Ranged düşman ateş etti! {damage} hasar verdi.");
     }
 
     // Algılama ve saldırı bölgelerini sahnede görmek için
@@ -63,5 +65,20 @@ public class RangedEnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Düşman öldüğünde yapılacaklar (animasyon, efekt vs.)
+        Destroy(gameObject);
     }
 }
