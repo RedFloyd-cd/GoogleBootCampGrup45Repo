@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -15,5 +16,11 @@ public class GameOverManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f; // oyun tekrar aksýn
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
