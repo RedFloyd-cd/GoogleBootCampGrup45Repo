@@ -109,6 +109,7 @@ public class MinibossAI : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        // Bullet objesinden gelen hasar
         health -= amount;
         if (health <= 0)
         {
