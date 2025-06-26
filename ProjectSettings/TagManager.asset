@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Bullet
   - Weapon
+  - Enemy
+  - Miniboss
   layers:
   - Default
   - TransparentFX

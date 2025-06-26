@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 159419559}
   m_Layer: 0
   m_Name: EnemyType 3 Miniboss
-  m_TagString: Untagged
+  m_TagString: Miniboss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -981,7 +981,7 @@ GameObject:
   - component: {fileID: 518637106}
   m_Layer: 0
   m_Name: EnemyType 2 Ranged
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1097,7 +1097,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.2, y: 2.922329, z: -0.7509276}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 796219964}
   m_Layer: 0
   m_Name: EnemyType 1 Melee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1348,7 +1348,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.14, y: 2.922329, z: -0.7509276}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2703,6 +2703,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3350340539200778677, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
+      propertyPath: m_Height
+      value: 1.811705
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350340539200778677, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
+      propertyPath: m_Radius
+      value: 0.21099287
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350340539200778677, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00037831068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350340539200778677, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.89724857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350340539200778677, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
+      propertyPath: m_Center.z
+      value: -0.04954791
+      objectReference: {fileID: 0}
     - target: {fileID: 7367686426023732210, guid: ed76192ac5b167c418e2178705d1d15d, type: 3}
       propertyPath: healthSlider
       value: 
@@ -2729,7 +2749,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 720500766838866939, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.075
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 720500766838866939, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2737,7 +2757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 720500766838866939, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.383
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 720500766838866939, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: m_LocalRotation.w

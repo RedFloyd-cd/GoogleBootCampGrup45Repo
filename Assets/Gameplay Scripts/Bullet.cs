@@ -10,10 +10,10 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         // MeleeEnemyAI
-        var melee = collision.gameObject.GetComponent<MeleeEnemyAI>();
+        var melee = other.GetComponent<MeleeEnemyAI>();
         if (melee != null)
         {
             melee.TakeDamage(damage);
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
             return;
         }
         // RangedEnemyAI
-        var ranged = collision.gameObject.GetComponent<RangedEnemyAI>();
+        var ranged = other.GetComponent<RangedEnemyAI>();
         if (ranged != null)
         {
             ranged.TakeDamage(damage);
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
             return;
         }
         // MinibossAI
-        var miniboss = collision.gameObject.GetComponent<MinibossAI>();
+        var miniboss = other.GetComponent<MinibossAI>();
         if (miniboss != null)
         {
             miniboss.TakeDamage(damage);
