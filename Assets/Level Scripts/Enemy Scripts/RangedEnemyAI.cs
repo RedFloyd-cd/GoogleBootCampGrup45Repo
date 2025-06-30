@@ -11,12 +11,14 @@ public class RangedEnemyAI : MonoBehaviour
     public float health = 80f; // Düşman canı
     public float damage = 8f; // Düşman hasarı
 
+    private float maxHealth;
+    private bool isFleeing = false;
     private float lastAttackTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -26,19 +28,41 @@ public class RangedEnemyAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance <= detectionRadius && distance <= attackRange)
+        // Can %30'un altına düştüyse kaçma moduna geç
+        if (!isFleeing && health <= maxHealth * 0.3f)
         {
-            // Hedefe bak
-            Vector3 lookDir = (target.position - transform.position).normalized;
-            lookDir.y = 0; // Sadece yatay düzlemde bak
-            if (lookDir != Vector3.zero)
-                transform.forward = lookDir;
+            isFleeing = true;
+        }
 
-            // Saldırı
-            if (Time.time - lastAttackTime > attackCooldown)
+        if (distance <= detectionRadius)
+        {
+            if (isFleeing)
             {
-                Attack();
-                lastAttackTime = Time.time;
+                // Kaç: oyuncudan uzaklaş
+                Vector3 direction = (transform.position - target.position).normalized;
+                transform.position += direction * projectileSpeed * Time.deltaTime;
+
+                // Kaçarken de ateş etmeye devam et
+                if (Time.time - lastAttackTime > attackCooldown && distance <= attackRange)
+                {
+                    Attack();
+                    lastAttackTime = Time.time;
+                }
+            }
+            else if (distance <= attackRange)
+            {
+                // Hedefe bak
+                Vector3 lookDir = (target.position - transform.position).normalized;
+                lookDir.y = 0; // Sadece yatay düzlemde bak
+                if (lookDir != Vector3.zero)
+                    transform.forward = lookDir;
+
+                // Saldırı
+                if (Time.time - lastAttackTime > attackCooldown)
+                {
+                    Attack();
+                    lastAttackTime = Time.time;
+                }
             }
         }
     }

@@ -10,12 +10,14 @@ public class MeleeEnemyAI : MonoBehaviour
     public float health = 100f; // Düşman canı
     public float damage = 10f; // Düşman hasarı
 
+    private float maxHealth;
+    private bool isFleeing = false;
     private float lastAttackTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -25,21 +27,36 @@ public class MeleeEnemyAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
 
+        // Can %30'un altına düştüyse kaçma moduna geç
+        if (!isFleeing && health <= maxHealth * 0.3f)
+        {
+            isFleeing = true;
+        }
+
         if (distance <= detectionRadius)
         {
-            // Takip et
-            if (distance > attackRange)
+            if (isFleeing)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
+                // Kaç: oyuncudan uzaklaş
+                Vector3 direction = (transform.position - target.position).normalized;
                 transform.position += direction * moveSpeed * Time.deltaTime;
             }
             else
             {
-                // Saldırı
-                if (Time.time - lastAttackTime > attackCooldown)
+                // Takip et
+                if (distance > attackRange)
                 {
-                    Attack();
-                    lastAttackTime = Time.time;
+                    Vector3 direction = (target.position - transform.position).normalized;
+                    transform.position += direction * moveSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    // Saldırı
+                    if (Time.time - lastAttackTime > attackCooldown)
+                    {
+                        Attack();
+                        lastAttackTime = Time.time;
+                    }
                 }
             }
         }

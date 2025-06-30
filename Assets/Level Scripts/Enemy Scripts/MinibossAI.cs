@@ -15,13 +15,15 @@ public class MinibossAI : MonoBehaviour
     public float meleeDamage = 25f; // Yakın dövüş hasarı
     public float rangedDamage = 15f; // Uzaktan saldırı hasarı
 
+    private float maxHealth;
+    private bool isEnraged = false;
     private float lastMeleeTime;
     private float lastRangedTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -30,6 +32,14 @@ public class MinibossAI : MonoBehaviour
         if (target == null) return;
 
         float distance = Vector3.Distance(transform.position, target.position);
+
+        // Can %30'un altına düştüyse agresif moda geç
+        if (!isEnraged && health <= maxHealth * 0.3f)
+        {
+            isEnraged = true;
+            meleeCooldown *= 0.5f;
+            rangedCooldown *= 0.5f;
+        }
 
         if (distance <= detectionRadius)
         {
