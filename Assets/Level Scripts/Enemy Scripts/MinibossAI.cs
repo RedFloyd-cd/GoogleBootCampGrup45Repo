@@ -14,6 +14,7 @@ public class MinibossAI : MonoBehaviour
     public float health = 300f; // Miniboss canı
     public float meleeDamage = 25f; // Yakın dövüş hasarı
     public float rangedDamage = 15f; // Uzaktan saldırı hasarı
+    public GameObject ammoPickupPrefab; // Inspector'dan atanacak
 
     private float maxHealth;
     private bool isEnraged = false;
@@ -41,7 +42,7 @@ public class MinibossAI : MonoBehaviour
             rangedCooldown *= 0.5f;
         }
 
-        if (distance <= detectionRadius)
+        if (distance <= detectionRadius && HasLineOfSight())
         {
             // Hedefe bak
             Vector3 lookDir = (target.position - transform.position).normalized;
@@ -105,6 +106,21 @@ public class MinibossAI : MonoBehaviour
         }
     }
 
+    // Düşman ile oyuncu arasında engel var mı kontrolü
+    bool HasLineOfSight()
+    {
+        RaycastHit hit;
+        Vector3 direction = (target.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (Physics.Raycast(transform.position, direction, out hit, distance))
+        {
+            if (hit.transform == target)
+                return true;
+            else
+                return false;
+        }
+        return false;
+    }
 
     // Algılama ve saldırı bölgelerini sahnede görmek için
     void OnDrawGizmosSelected()
@@ -129,7 +145,11 @@ public class MinibossAI : MonoBehaviour
 
     void Die()
     {
-        // Miniboss öldüğünde yapılacaklar (animasyon, efekt vs.)
+        // %20 ihtimalle ammo drop
+        if (ammoPickupPrefab != null && Random.value <= 0.2f)
+        {
+            Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

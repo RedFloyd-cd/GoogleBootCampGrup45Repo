@@ -9,6 +9,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public float attackCooldown = 1.5f; // Saldırılar arası bekleme süresi
     public float health = 100f; // Düşman canı
     public float damage = 10f; // Düşman hasarı
+    public GameObject ammoPickupPrefab; // Inspector'dan atanacak
 
     private float maxHealth;
     private bool isFleeing = false;
@@ -33,7 +34,7 @@ public class MeleeEnemyAI : MonoBehaviour
             isFleeing = true;
         }
 
-        if (distance <= detectionRadius)
+        if (distance <= detectionRadius && HasLineOfSight())
         {
             if (isFleeing)
             {
@@ -74,6 +75,21 @@ public class MeleeEnemyAI : MonoBehaviour
         }
     }
 
+    // Düşman ile oyuncu arasında engel var mı kontrolü
+    bool HasLineOfSight()
+    {
+        RaycastHit hit;
+        Vector3 direction = (target.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (Physics.Raycast(transform.position, direction, out hit, distance))
+        {
+            if (hit.transform == target)
+                return true;
+            else
+                return false;
+        }
+        return false;
+    }
 
     public void TakeDamage(float amount)
     {
@@ -87,7 +103,11 @@ public class MeleeEnemyAI : MonoBehaviour
 
     void Die()
     {
-        // Düşman öldüğünde yapılacaklar (animasyon, efekt vs.)
+        // %20 ihtimalle ammo drop
+        if (ammoPickupPrefab != null && Random.value <= 0.2f)
+        {
+            Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 

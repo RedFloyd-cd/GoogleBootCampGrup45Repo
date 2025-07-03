@@ -597,6 +597,7 @@ MonoBehaviour:
   health: 300
   meleeDamage: 25
   rangedDamage: 15
+  ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
 --- !u!65 &159419555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1122,6 +1123,7 @@ MonoBehaviour:
   projectileSpeed: 10
   health: 80
   damage: 8
+  ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
 --- !u!1 &546724875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1239,7 @@ MonoBehaviour:
   attackCooldown: 1.5
   health: 100
   damage: 35
+  ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
 --- !u!54 &796219965
 Rigidbody:
   m_ObjectHideFlags: 0

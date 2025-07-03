@@ -114,4 +114,15 @@ public class PistolController : MonoBehaviour
     {
         ammoText.text = currentAmmo + " / " + magazineSize + " | " + currentTotalAmmo;
     }
+
+    public void AddAmmo(int amount)
+    {
+        currentTotalAmmo = Mathf.Min(currentTotalAmmo + amount, maxAmmo);
+        UpdateAmmoUI();
+    }
+
+    public int GetCurrentTotalAmmo()
+    {
+        return currentTotalAmmo;
+    }
 }
