@@ -57,10 +57,15 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
   
   <summary> Ekran Görüntüleri </summary>
   
+  ![Ekran görüntüsü 2025-07-05 150626](https://github.com/user-attachments/assets/1f9da3e9-5fdb-465a-a8f1-a5a315be8205)
+  ![Ekran görüntüsü 2025-07-05 150539](https://github.com/user-attachments/assets/c4f614db-ed9a-46de-b648-fcb0e6784fe8)
+  ![Ekran görüntüsü 2025-07-05 150640](https://github.com/user-attachments/assets/6c2aa9d4-b3bc-43f8-a9a0-daf3b5353b53)
+  ![Ekran görüntüsü 2025-07-05 150600](https://github.com/user-attachments/assets/b276eae1-15f7-4433-bed6-a195be565601)
+  ![Ekran görüntüsü 2025-07-05 150504](https://github.com/user-attachments/assets/1dfaf365-211c-4714-957b-a9433f3f84b4)
 
 </details>
 
- ### Ekran Görüntüleri
+ ### Oyun Gelişim Aşamaları
 <details>
   
   <summary> Kamera ve Karakter Aşamaları </summary>
@@ -76,16 +81,16 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 ![cevre_tasrimi](https://github.com/user-attachments/assets/d6463e23-2874-4d87-825b-96ea36d7bda8) 
 </details>
 
-- Sprint Genel Değerlendirme
-  - ✅ Sprint hedefi olan “ilk oynanabilir prototip” başarıyla ortaya kondu ve hedeflenen puanın üstüne +5 puan çıkarak 35 puan ile ilk sprint tamamlandı.
-  - ✅ Oyun artık oynanabilir durumda: karakter hareket ediyor, düşmanlarla etkileşime giriyor, can sistemi çalışıyor ve oyun sonlanabiliyor.
-  - ✅ Oyunda planlanan map tasarımları gerçekleştirildi.
+### Sprint Genel Değerlendirme
+- ✅ Sprint hedefi olan “ilk oynanabilir prototip” başarıyla ortaya kondu ve hedeflenen puanın üstüne +5 puan çıkarak 35 puan ile ilk sprint tamamlandı.
+- ✅ Oyun artık oynanabilir durumda: karakter hareket ediyor, düşmanlarla etkileşime giriyor, can sistemi çalışıyor ve oyun sonlanabiliyor.
+- ✅ Oyunda planlanan map tasarımları gerçekleştirildi.
   
-- Gelecek Sprint İçin Aksiyonlar:
-  - 🎯 Level geçiş sistemleri ve tutorial sahnesi oluşturulacak.
-  - 🎯 Kullanıcı testleri yapılacak, geri bildirim alınacak.
-  - 🎯 Haritalara düşman modelleri eklenecek.
-  - 🎯 Oyun menüsü, pause ekranı, seviye sonuç ekranı gibi UI parçaları geliştirilecek.
+### Gelecek Sprint İçin Aksiyonlar:
+- 🎯 Level geçiş sistemleri ve tutorial sahnesi oluşturulacak.
+- 🎯 Kullanıcı testleri yapılacak, geri bildirim alınacak.
+- 🎯 Haritalara düşman modelleri eklenecek.
+- 🎯 Oyun menüsü, pause ekranı, seviye sonuç ekranı gibi UI parçaları geliştirilecek.
 
 
 
