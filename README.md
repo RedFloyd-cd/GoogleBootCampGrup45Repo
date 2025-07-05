@@ -9,7 +9,8 @@ Grup45
 | [Emre Yapıcı](https://github.com/yapiciemre)| Game Developer |
 
 # Oyun İsmi
-Pyscho REM (Oyun logosu eklenecek)
+![aaa](https://github.com/user-attachments/assets/7c4e1a2c-52b9-4b04-899d-6e1d1b5c8d36)
+> Her zihin farklıdır. Ve bazen... uyanmak, daha karanlık bir kabusa açılabilir.
 
 # Oyun Açıklaması
 Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir hastanın zihnine girerek bilinç katmanlarını temizlemeli, parazit düşünceleri yok etmeli ve bilinci yeniden stabilize etmelidir.
