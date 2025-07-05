@@ -58,11 +58,11 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
   
   <summary> Ekran Görüntüleri </summary>
   
-  ![Ekran görüntüsü 2025-07-05 150626](https://github.com/user-attachments/assets/1f9da3e9-5fdb-465a-a8f1-a5a315be8205)
-  ![Ekran görüntüsü 2025-07-05 150539](https://github.com/user-attachments/assets/c4f614db-ed9a-46de-b648-fcb0e6784fe8)
-  ![Ekran görüntüsü 2025-07-05 150640](https://github.com/user-attachments/assets/6c2aa9d4-b3bc-43f8-a9a0-daf3b5353b53)
-  ![Ekran görüntüsü 2025-07-05 150600](https://github.com/user-attachments/assets/b276eae1-15f7-4433-bed6-a195be565601)
-  ![Ekran görüntüsü 2025-07-05 150504](https://github.com/user-attachments/assets/1dfaf365-211c-4714-957b-a9433f3f84b4)
+  ![1](https://github.com/user-attachments/assets/1df18906-cb62-402a-9549-57c5e9553313)
+  ![2](https://github.com/user-attachments/assets/a611ea3e-0286-4689-8b6f-432ba9ffd045)
+  ![3](https://github.com/user-attachments/assets/7a516c65-d9a9-4a39-98fc-006dff3c9840)
+  ![4](https://github.com/user-attachments/assets/1655f6df-bda5-446e-903e-151dd49fbfd0)
+  ![5](https://github.com/user-attachments/assets/fe893bd3-65b5-4926-ba0e-3c39bdb25a8f)
 
 </details>
 
