@@ -5,7 +5,7 @@ Grup45
 | İsim | Görev | 
 | --------------- | --------------- | 
 | [Ayşenur Şahin](https://github.com/aysenursahiin) | Game Artist |
-| [Efe Aydoğdu](https://github.com/RedFloyd-cd)| Scrum Master / Game Developer |
+| [Efe Aydoğdu](https://github.com/RedFloyd-cd)| Product Owner / Scrum Master / Game Developer |
 | [Emre Yapıcı](https://github.com/yapiciemre)| Game Developer |
 
 # Oyun İsmi
@@ -46,6 +46,56 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 - Katmanlara özel müzik albümü paylaşılır.
 
 # Product Backlog
-# Sprint 1
+[Team Miro Board](https://miro.com/welcomeonboard/WUw3MjZtTStiakJ5UTR3OGRWbXY0cFFMZDJENDRxaVNHNkp3M01nenEyMlB1U2FUMUo0dURUbUgzMUhlU2Rha1V5d3VkUGZBVXFQQ1Y1MXdUREVUWmFyNjE0MUI2eGI0alRjNGsxRUtiS2RHNjlzR3k0aU1GeG93bjdaR1o5TmdBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=660439693857)
+
+# Sprint 1 (20 Haziran - 6 Temmuz)
+- Sprint hedefi, ilk oynanabilir prototipi oluşturmak ve temel oynanış sistemlerini işlevsel hâle getirmektir.
+- Toplam sprintte tamamlanması gereken puan 60 olarak belirlenmiştir. 3 sprinte görev dağılımları paylaşıldığında ilk sprintin 30 puan alınması kararlaştırılmıştır.
+- Miro Board'da backlog düzeni ve user story seçimleri; temel oynanış ve mekanikler, görsel ve ses içeriği, hikaye akışı ve geri bildirim olmak üzere üç ana bölüme ayrılmıştır ve puanları belirlenmiştir. Bu ana bölümlerin alt başlıklarında kişilere dağıtılan görevler belirlenmiş beraberinde puanları ve güncel durumlarına yer verilmiştir. İsim etiketi yer almayan görevlerde, birden fazla kişi çalıştığını göstermektedir. 
+- Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmasına kararlaştırılmıştır.
+  <details>
+  
+  <summary> Ekran Görüntüleri </summary>
+  
+
+</details>
+
+ ### Ekran Görüntüleri
+<details>
+  
+  <summary> Kamera ve Karakter Aşamaları </summary>
+  
+![b](https://github.com/user-attachments/assets/f420baf2-d290-412c-93a4-a42502dad520)
+![a](https://github.com/user-attachments/assets/3a6e9c78-be33-401d-bb84-d06603a8ed0d)
+</details>
+
+<details>
+  <summary> Çevre Tasarımın Gelişimi </summary>
+
+![Cevre_tasarimi](https://github.com/user-attachments/assets/1439e3af-7c2d-4098-9d08-0453be63dd22)
+![cevre_tasrimi](https://github.com/user-attachments/assets/d6463e23-2874-4d87-825b-96ea36d7bda8) 
+</details>
+
+- Sprint Genel Değerlendirme
+  - ✅ Sprint hedefi olan “ilk oynanabilir prototip” başarıyla ortaya kondu ve hedeflenen puanın üstüne +5 puan çıkarak 35 puan ile ilk sprint tamamlandı.
+  - ✅ Oyun artık oynanabilir durumda: karakter hareket ediyor, düşmanlarla etkileşime giriyor, can sistemi çalışıyor ve oyun sonlanabiliyor.
+  - ✅ Oyunda planlanan map tasarımları gerçekleştirildi.
+  
+- Gelecek Sprint İçin Aksiyonlar:
+  - 🎯 Level geçiş sistemleri ve tutorial sahnesi oluşturulacak.
+  - 🎯 Kullanıcı testleri yapılacak, geri bildirim alınacak.
+  - 🎯 Haritalara düşman modelleri eklenecek.
+  - 🎯 Oyun menüsü, pause ekranı, seviye sonuç ekranı gibi UI parçaları geliştirilecek.
+
+
+
+
+
+
+
+
+
+
+
 # Sprint 2
 # Sprint 3
