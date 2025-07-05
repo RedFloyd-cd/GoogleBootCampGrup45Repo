@@ -4,9 +4,9 @@ Grup45
 # Takım Rolleri
 | İsim | Görev | 
 | --------------- | --------------- | 
-| Ayşenur Şahin | Game Artist |
-| Efe Aydoğdu | Scrum Master / Game Developer |
-| Emre Yapıcı | Game Developer |
+| [Ayşenur Şahin](https://github.com/aysenursahiin) | Game Artist |
+| [Efe Aydoğdu](https://github.com/RedFloyd-cd)| Scrum Master / Game Developer |
+| [Emre Yapıcı](https://github.com/yapiciemre)| Game Developer |
 
 # Oyun İsmi
 Pyscho REM (Oyun logosu eklenecek)
