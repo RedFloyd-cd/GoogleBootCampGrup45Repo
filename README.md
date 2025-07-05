@@ -1,5 +1,5 @@
 # Takım İsmi
-Grup45
+Psycore
 
 # Takım Rolleri
 | İsim | Görev | 
