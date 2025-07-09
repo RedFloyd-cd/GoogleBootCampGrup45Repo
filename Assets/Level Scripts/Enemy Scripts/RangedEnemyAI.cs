@@ -11,21 +11,29 @@ public class RangedEnemyAI : MonoBehaviour
     public float health = 80f; // Düşman canı
     public float damage = 8f; // Düşman hasarı
     public GameObject ammoPickupPrefab; // Inspector'dan atanacak
+    public Animator animator; // Animator referansı
 
     private float maxHealth;
     private bool isFleeing = false;
     private float lastAttackTime;
+    private bool isDead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         maxHealth = health;
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null) return;
+        if (isDead) return;
+        if (target == null) {
+            if (animator != null) animator.SetBool("isMoving", false);
+            return;
+        }
 
         float distance = Vector3.Distance(transform.position, target.position);
 
@@ -40,31 +48,80 @@ public class RangedEnemyAI : MonoBehaviour
             if (isFleeing)
             {
                 // Kaç: oyuncudan uzaklaş
-                Vector3 direction = (transform.position - target.position).normalized;
-                transform.position += direction * projectileSpeed * Time.deltaTime;
-
+                Vector3 direction = (transform.position - target.position);
+                if (direction.magnitude > 0.05f)
+                {
+                    direction = direction.normalized;
+                    transform.position += direction * projectileSpeed * Time.deltaTime;
+                    if (animator != null) animator.SetBool("isMoving", true);
+                }
+                else
+                {
+                    if (animator != null) animator.SetBool("isMoving", false);
+                }
+                if (animator != null) animator.SetBool("isAttacking", false);
+                // Kaçış yönüne dön
+                if (direction != Vector3.zero)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+                }
                 // Kaçarken de ateş etmeye devam et
                 if (Time.time - lastAttackTime > attackCooldown && distance <= attackRange)
                 {
-                    Attack();
+                    if (animator != null) animator.SetBool("isAttacking", true);
                     lastAttackTime = Time.time;
+                    Attack();
                 }
             }
-            else if (distance <= attackRange)
+            else if (distance > attackRange)
+            {
+                // Takip et
+                Vector3 direction = (target.position - transform.position);
+                if (direction.magnitude > 0.05f)
+                {
+                    direction = direction.normalized;
+                    transform.position += direction * projectileSpeed * Time.deltaTime;
+                    if (animator != null) animator.SetBool("isMoving", true);
+                }
+                else
+                {
+                    if (animator != null) animator.SetBool("isMoving", false);
+                }
+                if (animator != null) animator.SetBool("isAttacking", false);
+                // Oyuncuya bak
+                Vector3 lookDir = (target.position - transform.position).normalized;
+                lookDir.y = 0;
+                if (lookDir != Vector3.zero)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(lookDir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+                }
+            }
+            else // Saldırı menzili içindeyse
             {
                 // Hedefe bak
                 Vector3 lookDir = (target.position - transform.position).normalized;
-                lookDir.y = 0; // Sadece yatay düzlemde bak
+                lookDir.y = 0;
                 if (lookDir != Vector3.zero)
-                    transform.forward = lookDir;
-
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(lookDir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+                }
                 // Saldırı
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
-                    Attack();
+                    if (animator != null) animator.SetBool("isAttacking", true);
+                    if (animator != null) animator.SetBool("isMoving", false);
                     lastAttackTime = Time.time;
+                    Attack();
                 }
             }
+        }
+        else
+        {
+            if (animator != null) animator.SetBool("isMoving", false);
+            if (animator != null) animator.SetBool("isAttacking", false);
         }
     }
 
@@ -118,6 +175,7 @@ public class RangedEnemyAI : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         // Bullet objesinden gelen hasar
         health -= amount;
         if (health <= 0)
@@ -128,11 +186,14 @@ public class RangedEnemyAI : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+        if (animator != null) animator.SetBool("isDead", true);
         // %20 ihtimalle ammo drop
         if (ammoPickupPrefab != null && Random.value <= 0.2f)
         {
             Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 2f); // 2 saniye sonra yok et, animasyon için zaman tanı
     }
 }

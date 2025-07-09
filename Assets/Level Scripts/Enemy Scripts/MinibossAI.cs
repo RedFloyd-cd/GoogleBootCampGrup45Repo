@@ -15,22 +15,30 @@ public class MinibossAI : MonoBehaviour
     public float meleeDamage = 25f; // Yakın dövüş hasarı
     public float rangedDamage = 15f; // Uzaktan saldırı hasarı
     public GameObject ammoPickupPrefab; // Inspector'dan atanacak
+    public Animator animator; // Animator referansı
 
     private float maxHealth;
     private bool isEnraged = false;
     private float lastMeleeTime;
     private float lastRangedTime;
+    private bool isDead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         maxHealth = health;
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null) return;
+        if (isDead) return;
+        if (target == null) {
+            if (animator != null) animator.SetBool("isMoving", false);
+            return;
+        }
 
         float distance = Vector3.Distance(transform.position, target.position);
 
@@ -44,17 +52,30 @@ public class MinibossAI : MonoBehaviour
 
         if (distance <= detectionRadius && HasLineOfSight())
         {
-            // Hedefe bak
+            // Hedefe bak (yumuşak dönüş)
             Vector3 lookDir = (target.position - transform.position).normalized;
             lookDir.y = 0;
             if (lookDir != Vector3.zero)
-                transform.forward = lookDir;
+            {
+                Quaternion toRotation = Quaternion.LookRotation(lookDir) * Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            }
 
             // Hareket: melee menzili dışında ise yaklaş
             if (distance > meleeRange)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * moveSpeed * Time.deltaTime;
+                Vector3 direction = (target.position - transform.position);
+                if (direction.magnitude > 0.05f)
+                {
+                    direction = direction.normalized;
+                    transform.position += direction * moveSpeed * Time.deltaTime;
+                    if (animator != null) animator.SetBool("isMoving", true);
+                }
+                else
+                {
+                    if (animator != null) animator.SetBool("isMoving", false);
+                }
+                if (animator != null) animator.SetBool("isAttacking", false);
             }
 
             // Melee saldırı
@@ -62,8 +83,11 @@ public class MinibossAI : MonoBehaviour
             {
                 if (Time.time - lastMeleeTime > meleeCooldown)
                 {
-                    MeleeAttack();
+                    if (animator != null) animator.SetTrigger("meleeAttack");
+                    if (animator != null) animator.SetBool("isAttacking", true);
+                    if (animator != null) animator.SetBool("isMoving", false);
                     lastMeleeTime = Time.time;
+                    MeleeAttack();
                 }
             }
             // Ranged saldırı (melee menzili dışında ve ranged menzili içinde)
@@ -71,10 +95,18 @@ public class MinibossAI : MonoBehaviour
             {
                 if (Time.time - lastRangedTime > rangedCooldown)
                 {
-                    RangedAttack();
+                    if (animator != null) animator.SetTrigger("rangedAttack");
+                    if (animator != null) animator.SetBool("isAttacking", true);
+                    if (animator != null) animator.SetBool("isMoving", false);
                     lastRangedTime = Time.time;
+                    RangedAttack();
                 }
             }
+        }
+        else
+        {
+            if (animator != null) animator.SetBool("isMoving", false);
+            if (animator != null) animator.SetBool("isAttacking", false);
         }
     }
 
@@ -135,6 +167,7 @@ public class MinibossAI : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         // Bullet objesinden gelen hasar
         health -= amount;
         if (health <= 0)
@@ -145,11 +178,14 @@ public class MinibossAI : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+        if (animator != null) animator.SetBool("isDead", true);
         // %20 ihtimalle ammo drop
         if (ammoPickupPrefab != null && Random.value <= 0.2f)
         {
             Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 2f); // 2 saniye sonra yok et, animasyon için zaman tanı
     }
 }
