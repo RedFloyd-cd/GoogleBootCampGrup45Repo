@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -38,9 +39,32 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Öldün!");
+        Debug.Log("ï¿½ldï¿½n!");
         controller.enabled = false;
         gameObject.SetActive(false);
         GameOverManager.Instance.ShowGameOver();
+    }
+
+    private Coroutine poisonCoroutine;
+
+    public void ApplyPoison(float tickDamage, float duration, float tickInterval)
+    {
+        if (poisonCoroutine != null)
+        {
+            StopCoroutine(poisonCoroutine);
+        }
+        poisonCoroutine = StartCoroutine(PoisonEffect(tickDamage, duration, tickInterval));
+    }
+
+    private IEnumerator PoisonEffect(float tickDamage, float duration, float tickInterval)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            TakeDamage(tickDamage);
+            yield return new WaitForSeconds(tickInterval);
+            elapsed += tickInterval;
+        }
+        poisonCoroutine = null;
     }
 }
