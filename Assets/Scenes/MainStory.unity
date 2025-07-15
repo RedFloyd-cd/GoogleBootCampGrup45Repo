@@ -158,6 +158,8 @@ PlayableDirector:
     value: {fileID: 988872163}
   - key: {fileID: 2254530967607876128, guid: baa32ba1945814b4c91b87a045d0e9fe, type: 2}
     value: {fileID: 1479338379}
+  - key: {fileID: -62414388762026894, guid: baa32ba1945814b4c91b87a045d0e9fe, type: 2}
+    value: {fileID: 896708801}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &29727951
@@ -483,6 +485,8 @@ PlayableDirector:
     value: {fileID: 94873759}
   - key: {fileID: -1045845376867548470, guid: dd0d7b5e2110b5d4e8841909a481af4e, type: 2}
     value: {fileID: 980971242}
+  - key: {fileID: 8871820253305640626, guid: dd0d7b5e2110b5d4e8841909a481af4e, type: 2}
+    value: {fileID: 896708801}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &393653055
@@ -588,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &422118063
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -870,8 +874,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CBirka\xE7 an\u0131 geri geldi\u2026 Ama h\xE2l\xE2 \xE7ok kar\u0131\u015F\u0131k.
-    Sanki kendime dokunacak kadar yak\u0131n\u0131m\u2026 ama h\xE2l\xE2 \xE7ok uza\u011F\u0131m.\u201D"
+  m_text: "\u201CBirka\xE7 an\u0131 geri geldi\u2026 ama h\xE2l\xE2 \xE7ok kar\u0131\u015F\u0131k.
+    Sanki kendime dokunacak kadar yak\u0131n\u0131m\u2026ama h\xE2l\xE2 \xE7ok uza\u011F\u0131m.\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1451,7 +1455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &939872814
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1471,6 +1475,8 @@ PlayableDirector:
     value: {fileID: 1669204934}
   - key: {fileID: 7472688068518833608, guid: 2b2825abdd43f4a4ea6fc9d90ad91aac, type: 2}
     value: {fileID: 436742483}
+  - key: {fileID: 3864835847995274323, guid: 2b2825abdd43f4a4ea6fc9d90ad91aac, type: 2}
+    value: {fileID: 896708801}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &939872815
@@ -1595,8 +1601,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CPar\xE7alar\u0131 birle\u015Ftiriyorum\u2026 ve korkuyorum. Hat\u0131rlamak
-    can\u0131m\u0131 yak\u0131yor\u2026 ama san\u0131r\u0131m buna ihtiyac\u0131m
+  m_text: "\u201CPar\xE7alar\u0131 birle\u015Ftiriyorum\u2026ve korkuyorum. Hat\u0131rlamak
+    can\u0131m\u0131 yak\u0131yor\u2026ama san\u0131r\u0131m buna ihtiyac\u0131m
     var.\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2315,8 +2321,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CBelki de iyile\u015Fmek, unutmaktan de\u011Fil\u2026 y\xFCzle\u015Fmekten
-    ge\xE7iyor. Kendimi buluyorum\u2026 yava\u015F\xE7a.\u201D"
+  m_text: "\u201CBelki de iyile\u015Fmek, unutmaktan de\u011Fil\u2026\ny\xFCzle\u015Fmekten
+    ge\xE7iyor. Kendimi buluyorum\u2026\nyava\u015F\xE7a.\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2803,7 +2809,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u201CArt\u0131k baz\u0131 \u015Feyleri g\xF6rmekten ka\xE7am\u0131yorum.
-    Ger\xE7eklik a\u011F\u0131r\u2026 ama ka\xE7t\u0131k\xE7a daha da b\xFCy\xFCyor.\u201D"
+    Ger\xE7eklik a\u011F\u0131r\u2026ama ka\xE7t\u0131k\xE7a daha da b\xFCy\xFCyor.\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
