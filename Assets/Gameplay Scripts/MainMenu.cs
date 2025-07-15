@@ -3,21 +3,33 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Panels")]
+    public GameObject settingsPanel;
+    public GameObject creditsPanel;
+
     public void StartGame()
     {
-        SceneManager.LoadScene("MainStory");
+        SceneManager.LoadScene("LoadingScene"); // Sonra LoadingScene -> MainStory yaparýz
     }
 
     public void OpenSettings()
     {
-        Debug.Log("Settings Açýldý");
-        // Settings paneli açma iþlemi
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
     }
 
     public void OpenCredits()
     {
-        Debug.Log("Credits");
-        // Credits sahnesi varsa yükle
+        creditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void QuitGame()
