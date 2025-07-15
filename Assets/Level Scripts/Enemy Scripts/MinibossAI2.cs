@@ -44,12 +44,12 @@ public class MinibossAI2 : MonoBehaviour
 
         if (distance <= detectionRadius)
         {
-            // Hedefe bak
-            Vector3 lookDir = (target.position - transform.position).normalized;
+            // Hedefe bak (DÜZ BAKMASI İÇİN 180 DERECE DÖNDÜRMEYİ KALDIRIYORUM)
+            Vector3 lookDir = (target.position - transform.position);
             lookDir.y = 0;
             if (lookDir != Vector3.zero)
             {
-                Quaternion toRotation = Quaternion.LookRotation(lookDir) * Quaternion.Euler(0, 180, 0);
+                Quaternion toRotation = Quaternion.LookRotation(lookDir);
                 transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
             }
 

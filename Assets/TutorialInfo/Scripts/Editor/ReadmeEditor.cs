@@ -274,12 +274,10 @@ namespace ReadmeSystem.Editor
             foreach (string guid in ids)
             {
                 var readmeObject = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GUIDToAssetPath(guid));
-
-                Readme readme = (Readme)readmeObject;
-                if (readme.isRoot)
+                Readme readme = readmeObject as Readme;
+                if (readme != null && readme.isRoot)
                 {
                     results.Add(readme);
-
                 }
             }
 

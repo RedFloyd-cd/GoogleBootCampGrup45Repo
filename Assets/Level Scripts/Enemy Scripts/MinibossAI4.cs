@@ -37,6 +37,12 @@ public class MinibossAI4 : MonoBehaviour
 
         if (distance <= detectionRadius)
         {
+            // Oyuncuya bak
+            Vector3 lookDir = (target.position - transform.position);
+            lookDir.y = 0; // Yalnızca yatay düzlemde döndür
+            if (lookDir != Vector3.zero)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDir), 0.2f);
+
             if (Time.time - lastTeleportTime > teleportCooldown)
             {
                 TeleportRandomly();

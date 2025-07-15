@@ -36,6 +36,14 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        // MinibossAI4
+        var miniboss4 = other.GetComponent<MinibossAI4>();
+        if (miniboss4 != null)
+        {
+            miniboss4.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
         // İsteğe bağlı: başka bir şeye çarparsa da yok et
         Destroy(gameObject);
     }
