@@ -40,7 +40,7 @@ public class MinibossAI3 : MonoBehaviour
             lookDir.y = 0;
             if (lookDir != Vector3.zero)
             {
-                Quaternion toRotation = Quaternion.LookRotation(lookDir) * Quaternion.Euler(0, 180, 0);
+                Quaternion toRotation = Quaternion.LookRotation(lookDir);
                 transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
             }
 

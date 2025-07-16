@@ -16,9 +16,6 @@ public class MinibossAI5 : MonoBehaviour
     public float projectileSpeed = 12f;
     public float projectileDamage = 20f;
     public GameObject ammoPickupPrefab;
-    public GameObject explosionEffectPrefab;
-    public float explosionRange = 3f;
-    public float explosionDamage = 60f;
     public Animator animator;
     public Vector3 teleportAreaCenter;
     public Vector3 teleportAreaSize = new Vector3(12, 0, 12);
@@ -61,9 +58,6 @@ public class MinibossAI5 : MonoBehaviour
             case 4:
                 Phase4_TeleportProjectile(); // Teleport + projectile
                 break;
-            case 5:
-                Phase5_Explode(); // Patlama
-                break;
         }
     }
 
@@ -71,8 +65,7 @@ public class MinibossAI5 : MonoBehaviour
     {
         float healthPercent = health / maxHealth;
         int newPhase = 1;
-        if (healthPercent <= 0.2f) newPhase = 5;
-        else if (healthPercent <= 0.4f) newPhase = 4;
+        if (healthPercent <= 0.4f) newPhase = 4;
         else if (healthPercent <= 0.6f) newPhase = 3;
         else if (healthPercent <= 0.8f) newPhase = 2;
         else newPhase = 1;
@@ -92,9 +85,14 @@ public class MinibossAI5 : MonoBehaviour
             MoveTowardsTarget(distance);
             if (distance <= meleeRange && Time.time - lastAttackTime > attackCooldown)
             {
-                if (animator != null) animator.SetTrigger("meleeAttack");
+                if (animator != null) {
+                    animator.SetTrigger("meleeAttack");
+                    animator.SetBool("isAttacking", true);
+                    animator.SetBool("isShooting", false);
+                }
                 lastAttackTime = Time.time;
                 MeleeAttack();
+                if (animator != null) animator.SetBool("isAttacking", false);
             }
         }
     }
@@ -110,9 +108,14 @@ public class MinibossAI5 : MonoBehaviour
             MoveTowardsTarget(distance, fastMove);
             if (distance <= meleeRange && Time.time - lastAttackTime > fastCooldown)
             {
-                if (animator != null) animator.SetTrigger("meleeAttack");
+                if (animator != null) {
+                    animator.SetTrigger("meleeAttack");
+                    animator.SetBool("isAttacking", true);
+                    animator.SetBool("isShooting", false);
+                }
                 lastAttackTime = Time.time;
                 MeleeAttack();
+                if (animator != null) animator.SetBool("isAttacking", false);
             }
         }
     }
@@ -127,9 +130,14 @@ public class MinibossAI5 : MonoBehaviour
             MoveTowardsTarget(distance, slowMove);
             if (distance <= areaAttackRadius && Time.time - lastAttackTime > attackCooldown * 1.2f)
             {
-                if (animator != null) animator.SetTrigger("areaAttack");
+                if (animator != null) {
+                    animator.SetTrigger("areaAttack");
+                    animator.SetBool("isAttacking", true);
+                    animator.SetBool("isShooting", false);
+                }
                 lastAttackTime = Time.time;
                 AreaAttack();
+                if (animator != null) animator.SetBool("isAttacking", false);
             }
         }
     }
@@ -144,21 +152,13 @@ public class MinibossAI5 : MonoBehaviour
             {
                 TeleportRandomly();
                 lastTeleportTime = Time.time;
-                if (animator != null) animator.SetTrigger("teleport");
+                if (animator != null) {
+                    animator.SetTrigger("teleport");
+                    animator.SetBool("isShooting", true);
+                    animator.SetBool("isAttacking", false);
+                }
                 Invoke(nameof(FireProjectile), 0.3f);
             }
-        }
-    }
-
-    // Faz 5: Patlama (ölümcül saldırı)
-    void Phase5_Explode()
-    {
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance <= explosionRange && Time.time - lastAttackTime > attackCooldown)
-        {
-            if (animator != null) animator.SetTrigger("explode");
-            lastAttackTime = Time.time;
-            Explode();
         }
     }
 
@@ -171,6 +171,14 @@ public class MinibossAI5 : MonoBehaviour
             if (direction.magnitude > 0.05f)
             {
                 direction = direction.normalized;
+                // Oyuncuya bak
+                Vector3 lookDir = (target.position - transform.position).normalized;
+                lookDir.y = 0;
+                if (lookDir != Vector3.zero)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(lookDir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+                }
                 transform.position += direction * speed * Time.deltaTime;
                 if (animator != null) animator.SetBool("isMoving", true);
             }
@@ -240,24 +248,7 @@ public class MinibossAI5 : MonoBehaviour
                 rb.linearVelocity = dir * projectileSpeed;
             }
         }
-    }
-
-    void Explode()
-    {
-        if (explosionEffectPrefab != null)
-            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-        Collider[] hits = Physics.OverlapSphere(transform.position, explosionRange);
-        foreach (var hit in hits)
-        {
-            if (hit.CompareTag("Player"))
-            {
-                PlayerHealth ph = hit.GetComponent<PlayerHealth>();
-                if (ph != null)
-                {
-                    ph.TakeDamage(explosionDamage);
-                }
-            }
-        }
+        if (animator != null) animator.SetBool("isShooting", false);
     }
 
     public void TakeDamage(float amount)
@@ -292,7 +283,5 @@ public class MinibossAI5 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, areaAttackRadius);
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(teleportAreaCenter, teleportAreaSize);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, explosionRange);
     }
 }
