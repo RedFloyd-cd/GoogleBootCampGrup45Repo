@@ -17,6 +17,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestCharacterScene.unity
     guid: 298bd170eedbe2942b55a4ae2adecfda
+  - enabled: 1
+    path: Assets/Scenes/TestREM01Map.unity
+    guid: a4d529becae6a3e41974c6702e8dc272
+  - enabled: 1
+    path: Assets/Scenes/TestREM02Map.unity
+    guid: 9bfd75cc07411614a984c47477f91c83
+  - enabled: 1
+    path: Assets/Scenes/TestREM03Map.unity
+    guid: e35e3c134c37b0944adc22d8b6041fe1
+  - enabled: 1
+    path: Assets/Scenes/TestREM04Map.unity
+    guid: ef7c11c64b29b2f4b9560c76d18b6ac2
+  - enabled: 1
+    path: Assets/Scenes/TestREM05Map.unity
+    guid: 0a47761664b52204f8719d06c14f1655
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
