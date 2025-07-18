@@ -3197,6 +3197,7 @@ GameObject:
   - component: {fileID: 1029868367}
   - component: {fileID: 1029868369}
   - component: {fileID: 1029868368}
+  - component: {fileID: 1029868370}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -3261,6 +3262,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029868366}
   m_CullTransparentMesh: 1
+--- !u!114 &1029868370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029868366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b2a1e6c7841c54b86fd4ec086fc5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logoImage: {fileID: 1029868368}
+  glitchFrames:
+  - {fileID: 304269161, guid: 6b34ac0d77ba65a4484708d461ffa518, type: 3}
+  - {fileID: 1721927619, guid: 6b34ac0d77ba65a4484708d461ffa518, type: 3}
+  glitchInterval: 0.1
+  shakeAmount: 5
 --- !u!1 &1031510877
 GameObject:
   m_ObjectHideFlags: 0
