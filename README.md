@@ -5,12 +5,15 @@ Psycore
 | İsim | Görev | 
 | --------------- | --------------- | 
 | [Ayşenur Şahin](https://github.com/aysenursahiin) | Game Artist |
+| [Beyza Özkar](https://github.com/ozkarbeyza)| UI Designer & Sound Designer |
 | [Efe Aydoğdu](https://github.com/RedFloyd-cd)| Product Owner / Scrum Master / Game Developer |
 | [Emre Yapıcı](https://github.com/yapiciemre)| Game Developer |
 
 # Oyun İsmi
-![aaa](https://github.com/user-attachments/assets/7c4e1a2c-52b9-4b04-899d-6e1d1b5c8d36)
+<img width="1408" height="768" alt="Main Menu" src="https://github.com/user-attachments/assets/516f23e9-d837-42ae-8b1b-f413fb000291" />
+
 > Her zihin farklıdır. Ve bazen... uyanmak, daha karanlık bir kabusa açılabilir.
+
 
 # Oyun Açıklaması
 Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir hastanın zihnine girerek bilinç katmanlarını temizlemeli, parazit düşünceleri yok etmeli ve bilinci yeniden stabilize etmelidir.
@@ -49,14 +52,14 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 # Product Backlog
 [Team Miro Board](https://miro.com/welcomeonboard/WUw3MjZtTStiakJ5UTR3OGRWbXY0cFFMZDJENDRxaVNHNkp3M01nenEyMlB1U2FUMUo0dURUbUgzMUhlU2Rha1V5d3VkUGZBVXFQQ1Y1MXdUREVUWmFyNjE0MUI2eGI0alRjNGsxRUtiS2RHNjlzR3k0aU1GeG93bjdaR1o5TmdBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=660439693857)
 
-# Sprint 1 (20 Haziran - 6 Temmuz)
+# Sprint 1
 - Sprint hedefi, ilk oynanabilir prototipi oluşturmak ve temel oynanış sistemlerini işlevsel hâle getirmektir.
 - Toplam sprintte tamamlanması gereken puan 60 olarak belirlenmiştir. 3 sprinte görev dağılımları paylaşıldığında ilk sprintin 30 puan alınması kararlaştırılmıştır.
 - Miro Board'da backlog düzeni ve user story seçimleri; temel oynanış ve mekanikler, görsel ve ses içeriği, hikaye akışı ve geri bildirim olmak üzere üç ana bölüme ayrılmıştır ve puanları belirlenmiştir. Bu ana bölümlerin alt başlıklarında kişilere dağıtılan görevler belirlenmiş beraberinde puanları ve güncel durumlarına yer verilmiştir. İsim etiketi yer almayan görevlerde, birden fazla kişi çalıştığını göstermektedir. 
 - Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmasına kararlaştırılmıştır.
   <details>
   
-  <summary> Ekran Görüntüleri </summary>
+  <summary> Görüşmelerin Ekran Görüntüleri </summary>
   
   ![1](https://github.com/user-attachments/assets/1df18906-cb62-402a-9549-57c5e9553313)
   ![2](https://github.com/user-attachments/assets/a611ea3e-0286-4689-8b6f-432ba9ffd045)
@@ -93,15 +96,77 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 - 🎯 Haritalara düşman modelleri eklenecek.
 - 🎯 Oyun menüsü, pause ekranı, seviye sonuç ekranı gibi UI parçaları geliştirilecek.
 
-
-
-
-
-
-
-
-
-
-
 # Sprint 2
+- Bir önceki sprintte belirlenen hedeflerin hepsi başarıyla gerçekleştirilmiştir.
+- Toplam sprintte tamamlanması gereken puan 60 olarak belirlenmiştir. İkinci sprinti 48 puan ile sonlandırıldı.
+- Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmaya devam edilmiştir.
+<img width="1186" height="835" alt="Screenshot" src="https://github.com/user-attachments/assets/8357053f-3a3e-45e2-b4a8-9dea5e6d7dc8" />
+
+<details>
+  
+  <summary> Görüşmelerin Ekran Görüntüleri </summary>
+<img width="732" height="871" alt="3" src="https://github.com/user-attachments/assets/db64f28d-ef4d-42ce-9736-905f586ac2a6" />
+<img width="721" height="898" alt="2" src="https://github.com/user-attachments/assets/e7dcfb73-fb38-433f-a61a-f3cef8dac6a5" />
+<img width="740" height="970" alt="1" src="https://github.com/user-attachments/assets/a0896e7c-4023-467a-96a1-e456a175e39d" />
+<img width="730" height="767" alt="5" src="https://github.com/user-attachments/assets/3259b71c-9348-4a9c-a397-b0f85799384b" />
+<img width="728" height="683" alt="4" src="https://github.com/user-attachments/assets/0f85daa4-c0e2-4ca7-b305-5cc2fa68eac6" />
+
+</details>
+
+### ✅ Sprint Değerlendirme
+1. 🎨Görsel & UI Çalışmaları
+  - Level UI tasarlandı ve eklendi.
+  - Loading Scene UI yerleştirildi ve tasarım uyumu sağlandı.
+  - Settings ve Credits panelleri geliştirildi, düzenlemeler yapıldı.
+  - Menü yapısı genel olarak oluşturuldu ve geliştirilmeye devam edilecek.
+  - Logo glitch efekti eklendi ve proje klasör yapısı düzenlendi.
+
+2. ⚙️ Kod & Fonksiyonel Geliştirmeler
+  - Sinematik geçişler ve sahne geçişleri test edildi, demo kodları yazıldı.
+  - Prefab ayarlamaları ve küçük modeller projeye dahil edildi.
+  - Kod hataları düzeltildi ve stabilite artırıldı.
+  - Yeni düşman çeşitleri ve modelleri eklendi; düşman sistemi %90 tamamlandı.
+
+4. 🎵 Ses & Sahne Çalışmaları
+  - Ara sahneler hazırlandı ve genel düzenlemeleri yapıldı.
+  - Sahneler arası geçişler oyun sahnesine bağlandı.
+
+5. 👥 Oynanış Akışı
+  - Oyuncu, oyun bölümlerine yerleştirildi ve testler yapıldı.
+  - Mini menü ve ayarlar paneli üzerinden düzeltmeler gerçekleştirildi.
+
+<details>
+  
+  <summary> Oyun Gelişim Aşamaları </summary>
+  
+- Ana Menü:
+
+![Menu gif](https://github.com/user-attachments/assets/2e6ac741-2bd0-4aa3-bfb6-a5cc03365d02)
+
+- Ayarlar Menü:
+
+<img width="1328" height="737" alt="Setting UI" src="https://github.com/user-attachments/assets/b73abd5c-c40c-489d-8102-ebb60de78f4d" />
+
+- Yükleme Ekranı:
+<img width="1337" height="750" alt="Loading Screen" src="https://github.com/user-attachments/assets/b7378764-9669-4834-bc35-e20b420c1d41" />
+
+- Ara Sahneler:
+
+<img width="1917" height="959" alt="CutScene" src="https://github.com/user-attachments/assets/f2d3e79b-32f9-4d57-b477-977886d645a9" />
+
+- Düşman Modelleri:
+
+<img width="1588" height="740" alt="Dusman Modelleri" src="https://github.com/user-attachments/assets/90f173ee-85ba-40bf-bc40-79d8e7d8b4fd" />
+
+
+</details>
+
+### Gelecek Sprint İçin Aksiyonlar:
+- 🎯 Oyun içi seslerin entegre edilmesi.
+- 🎯 Bölüm sonu upgrade sistemlerin (can, hasar, cooldown) gerçekleştirilmesi.
+- 🎯 UI testleri ve görsel detayların tamamlanması.
+- 🎯 Oynanabilirliğinin iyileştirilmesi ve geri bildirimlerin toplanması.
+
+
+
 # Sprint 3
