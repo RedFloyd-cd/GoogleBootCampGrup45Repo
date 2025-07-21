@@ -6,18 +6,17 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Çarptýðý þey: {other.name}");
+        Debug.Log($"ï¿½arptï¿½ï¿½ï¿½ ï¿½ey: {other.name}");
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Oyuncuya çarptý!");
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            Debug.Log("Oyuncuya Ã§arptÄ±!");
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerController.TakeDamage(damage);
             }
-
-            Destroy(gameObject); // sadece oyuncuya çarptýðýnda sil
+            Destroy(gameObject); // sadece oyuncuya Ã§arptÄ±ÄŸÄ±nda sil
         }
     }
 }

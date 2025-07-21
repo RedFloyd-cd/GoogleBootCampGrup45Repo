@@ -11,11 +11,11 @@ public class PoisonProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerHealth ph = other.GetComponent<PlayerHealth>();
-            if (ph != null)
+            PlayerController pc = other.GetComponent<PlayerController>();
+            if (pc != null)
             {
-                ph.TakeDamage(damage);
-                ph.ApplyPoison(poisonTickDamage, poisonDuration, poisonTickInterval);
+                pc.TakeDamage(damage);
+                pc.ApplyPoison(poisonTickDamage, poisonDuration, poisonTickInterval);
             }
             Destroy(gameObject);
         }

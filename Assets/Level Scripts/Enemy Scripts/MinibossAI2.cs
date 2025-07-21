@@ -94,10 +94,10 @@ public class MinibossAI2 : MonoBehaviour
     {
         if (target != null)
         {
-            PlayerHealth ph = target.GetComponent<PlayerHealth>();
-            if (ph != null)
+            PlayerController pc = target.GetComponent<PlayerController>();
+            if (pc != null)
             {
-                ph.TakeDamage(meleeDamage);
+                pc.TakeDamage(meleeDamage);
             }
         }
     }

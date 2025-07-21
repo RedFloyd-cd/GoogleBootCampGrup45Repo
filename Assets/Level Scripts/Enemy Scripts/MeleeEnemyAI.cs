@@ -116,10 +116,10 @@ public class MeleeEnemyAI : MonoBehaviour
         if (isDead) return;
         if (target != null)
         {
-            PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            PlayerController playerController = target.GetComponent<PlayerController>();
+            if (playerController != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerController.TakeDamage(damage);
             }
         }
     }

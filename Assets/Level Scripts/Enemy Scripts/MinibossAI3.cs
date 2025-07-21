@@ -88,10 +88,10 @@ public class MinibossAI3 : MonoBehaviour
         {
             if (hit.CompareTag("Player"))
             {
-                PlayerHealth ph = hit.GetComponent<PlayerHealth>();
-                if (ph != null)
+                PlayerController pc = hit.GetComponent<PlayerController>();
+                if (pc != null)
                 {
-                    ph.TakeDamage(areaAttackDamage);
+                    pc.TakeDamage(areaAttackDamage);
                 }
             }
         }
