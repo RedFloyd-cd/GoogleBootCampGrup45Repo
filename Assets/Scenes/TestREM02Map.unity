@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.373
       objectReference: {fileID: 0}
+    - target: {fileID: 1769119680395821836, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 94229899}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.44
