@@ -1742,6 +1742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4320032465051170227, guid: 4fe13b1619f011646a8aa6eedbd67e54, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509478959318725963, guid: 4fe13b1619f011646a8aa6eedbd67e54, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5367,7 +5371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.064
       objectReference: {fileID: 0}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9114,8 +9118,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2219897681339760792, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
   m_PrefabInstance: {fileID: 4078073078029521801}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1434515244
-BoxCollider:
+--- !u!64 &1434515248
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9132,9 +9136,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 213.68166, y: 0, z: 211.25192}
-  m_Center: {x: -0.030485788, y: -0.1806693, z: 1.6321712}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1453043773871479701, guid: 589efb82e39695d4c8c9d3069a07fb5c, type: 3}
 --- !u!1 &1438784952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4811177955367704678, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
@@ -11545,8 +11550,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1831597440927950423, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
   m_PrefabInstance: {fileID: 55460490931292449}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1770913900
-BoxCollider:
+--- !u!64 &1770913898
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11563,9 +11568,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 213.68166, y: 0.8153748, z: 214.17957}
-  m_Center: {x: -0.030485788, y: -0.81913227, z: 0.1683553}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1453043773871479701, guid: 589efb82e39695d4c8c9d3069a07fb5c, type: 3}
 --- !u!1 &1778219198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1938611825357676139, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
@@ -14617,7 +14623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9163541825527325666, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14625,7 +14631,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1831597440927950423, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1770913900}
+      addedObject: {fileID: 1770913898}
     - targetCorrespondingSourceObject: {fileID: 206284770471171478, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 506868120}
@@ -15379,7 +15385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1969412720120543171, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5171266126074888334, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15439,7 +15445,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2219897681339760792, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1434515244}
+      addedObject: {fileID: 1434515248}
     - targetCorrespondingSourceObject: {fileID: 23099932716316208, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1150873947}
