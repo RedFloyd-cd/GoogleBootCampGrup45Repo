@@ -81,10 +81,10 @@ public class ExplosiveEnemy : MonoBehaviour
         // Oyuncuya hasar ver
         if (target != null && Vector3.Distance(transform.position, target.position) <= explosionRange + 0.5f)
         {
-            PlayerHealth ph = target.GetComponent<PlayerHealth>();
-            if (ph != null)
+            PlayerController pc = target.GetComponent<PlayerController>();
+            if (pc != null)
             {
-                ph.TakeDamage(explosionDamage);
+                pc.TakeDamage(explosionDamage);
             }
         }
         // %20 ihtimalle ammo drop
