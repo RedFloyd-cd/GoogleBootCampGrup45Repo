@@ -90,11 +90,9 @@ public class PistolController : MonoBehaviour
         {
             rb.linearVelocity = direction * fireForce;
         }
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.damage = bulletDamage;
-        }
+        // Bullet scripti yerine dinamik olarak çarpışma ve hasar scripti ekle
+        bullet.AddComponent<BulletCollision>().Init(bulletDamage);
+        Destroy(bullet, 3f); // mermiyi 3 saniye sonra yok et
     }
 
     System.Collections.IEnumerator Reload()
@@ -124,5 +122,48 @@ public class PistolController : MonoBehaviour
     public int GetCurrentTotalAmmo()
     {
         return currentTotalAmmo;
+    }
+}
+
+public class BulletCollision : MonoBehaviour
+{
+    private float damage;
+    public void Init(float dmg) { damage = dmg; }
+    void OnTriggerEnter(Collider other)
+    {
+        // MeleeEnemyAI
+        var melee = other.GetComponent<MeleeEnemyAI>();
+        if (melee != null)
+        {
+            melee.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+        // RangedEnemyAI
+        var ranged = other.GetComponent<RangedEnemyAI>();
+        if (ranged != null)
+        {
+            ranged.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+        // MinibossAI
+        var miniboss = other.GetComponent<MinibossAI>();
+        if (miniboss != null)
+        {
+            miniboss.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+        // MinibossAI4
+        var miniboss4 = other.GetComponent<MinibossAI4>();
+        if (miniboss4 != null)
+        {
+            miniboss4.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+        // İsteğe bağlı: başka bir şeye çarparsa da yok et
+        Destroy(gameObject);
     }
 }
