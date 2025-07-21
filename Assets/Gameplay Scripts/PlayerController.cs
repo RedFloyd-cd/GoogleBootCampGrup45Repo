@@ -30,6 +30,16 @@ public class PlayerController : MonoBehaviour
     private bool isOnCooldown = false;
     private Vector3 dashDirection;
 
+    [Header("Time Warp Settings")]
+    public float timeWarpTimeScale = 0.2f;
+    public float timeWarpDuration = 3f;
+    public float timeWarpCooldown = 10f;
+    public GameObject timeWarpPanel;
+    private float timeWarpCooldownTimer = 0f;
+    private bool isTimeWarpOnCooldown = false;
+    private bool isTimeWarpActive = false;
+    private float timeWarpTimer;
+
     private Animator animator;
     private Camera mainCamera;
 
@@ -51,8 +61,11 @@ public class PlayerController : MonoBehaviour
         HandleHitTrigger();
         UpdateAnimatorParameters();
         HandleDashCooldown();
+        HandleTimeWarpCooldown();
         HandleDashInput();
+        HandleTimeWarpInput();
         HandleDashing();
+        HandleTimeWarpActive();
     }
 
     // Input System Events
@@ -229,5 +242,70 @@ public class PlayerController : MonoBehaviour
         if (move == Vector3.zero)
             move = transform.forward;
         return move.normalized;
+    }
+
+    // Time Warp System
+    private void HandleTimeWarpInput()
+    {
+        if (Keyboard.current.qKey.wasPressedThisFrame && !isTimeWarpActive && !isTimeWarpOnCooldown)
+        {
+            ActivateTimeWarp();
+        }
+    }
+
+    private void HandleTimeWarpActive()
+    {
+        if (isTimeWarpActive)
+        {
+            timeWarpTimer -= Time.unscaledDeltaTime;
+
+            if (timeWarpTimer <= 0f)
+            {
+                ResetTimeScale();
+            }
+        }
+    }
+
+    private void ActivateTimeWarp()
+    {
+        Time.timeScale = timeWarpTimeScale;
+        Time.fixedDeltaTime = 0.02f * timeWarpTimeScale;
+        timeWarpTimer = timeWarpDuration;
+        isTimeWarpActive = true;
+
+        if (timeWarpPanel != null)
+            timeWarpPanel.SetActive(true);
+
+        isTimeWarpOnCooldown = true;
+        timeWarpCooldownTimer = timeWarpCooldown;
+
+        Debug.Log("Zaman yavaşlatma aktif!");
+    }
+
+    private void ResetTimeScale()
+    {
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+        isTimeWarpActive = false;
+
+        if (timeWarpPanel != null)
+            timeWarpPanel.SetActive(false);
+
+        Debug.Log("Zaman normale döndü.");
+    }
+
+    private void HandleTimeWarpCooldown()
+    {
+        if (!isTimeWarpOnCooldown) return;
+
+        timeWarpCooldownTimer -= Time.unscaledDeltaTime;
+
+        if (timeWarpCooldownTimer <= 0f)
+        {
+            isTimeWarpOnCooldown = false;
+            timeWarpCooldownTimer = 0f;
+
+            Debug.Log("TimeWarp yeniden kullanılabilir.");
+        }
     }
 }
