@@ -44,14 +44,21 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
 
     // Unity Event Methods
-    private void Start()
+    void Start()
     {
         mainCamera = Camera.main;
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        // Stat değerlerini PlayerStats'tan al
+        maxHealth = PlayerStats.Instance.maxHealth;
+        dashCooldown = PlayerStats.Instance.dashCooldown;
+        timeWarpCooldown = PlayerStats.Instance.timeWarpCooldown;
+
         currentHealth = maxHealth;
         UpdateUI();
     }
+
 
     private void Update()
     {

@@ -22,6 +22,7 @@ public class PistolController : MonoBehaviour
 
     void Start()
     {
+        bulletDamage = PlayerStats.Instance.damage;
         currentAmmo = magazineSize;
         currentTotalAmmo = maxAmmo;
         UpdateAmmoUI();

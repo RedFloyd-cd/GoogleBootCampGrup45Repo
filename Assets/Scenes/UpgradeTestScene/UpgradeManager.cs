@@ -11,11 +11,6 @@ public class UpgradeManager : MonoBehaviour
     public Button cooldownButton;
     public GameObject upgradePanel;
 
-    [Header("Upgrade Values")]
-    public float healthIncreaseAmount = 50f;
-    public float damageIncreaseAmount = 10f;
-    public float cooldownMultiplier = 0.8f;
-
     private void Awake()
     {
         Instance = this;
@@ -30,34 +25,23 @@ public class UpgradeManager : MonoBehaviour
 
     void ApplyHealthUpgrade()
     {
-        var player = Object.FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            player.maxHealth += healthIncreaseAmount;
-            Debug.Log($"Yeni maxHealth: {player.maxHealth}");
-        }
+        PlayerStats.Instance.ApplyUpgrade("Health");
+        Debug.Log($"Yeni maxHealth: {PlayerStats.Instance.maxHealth}");
         ContinueToCutscene();
     }
 
     void ApplyDamageUpgrade()
     {
-        var pistol = Object.FindFirstObjectByType<PistolController>();
-        if (pistol != null)
-        {
-            pistol.bulletDamage += damageIncreaseAmount;
-            Debug.Log($"Yeni damage: {pistol.bulletDamage}");
-        }
+        PlayerStats.Instance.ApplyUpgrade("Damage");
+        Debug.Log($"Yeni damage: {PlayerStats.Instance.damage}");
         ContinueToCutscene();
     }
 
     void ApplyCooldownUpgrade()
     {
-        var player = Object.FindFirstObjectByType<PlayerController>();
-        if (player != null)
-        {
-            player.dashCooldown *= cooldownMultiplier;
-            Debug.Log($"Yeni dashCooldown: {player.dashCooldown}");
-        }
+        PlayerStats.Instance.ApplyUpgrade("Cooldown");
+        Debug.Log($"Yeni cooldown: {PlayerStats.Instance.dashCooldown}");
+        Debug.Log($"Yeni cooldown: {PlayerStats.Instance.timeWarpCooldown}");
         ContinueToCutscene();
     }
 
