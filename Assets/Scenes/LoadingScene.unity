@@ -176,10 +176,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading..
+  m_text: "Y\xFCkleniyor..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a42b2e084a334fe4e80edbd1927d83b4, type: 2}
-  m_sharedMaterial: {fileID: 7061784340368690812, guid: a42b2e084a334fe4e80edbd1927d83b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
+  m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c695f2194f05ca54493ccfa8930fbd4d
+guid: 53b0083e8ef121949b5387900c34bd2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frame 2 (4)_0
+      name: Upgrades - Health_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 43
-        width: 5786
-        height: 3266
+        x: 213
+        y: 168
+        width: 364
+        height: 292
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aba5e61b00156b5429936c7bd21efb44
-      internalID: -383164587
+      spriteID: eeb7333a8522b1247a6b0fefa9a76761
+      internalID: 742865671
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0dc3d8f807a3b78409e11700867f1a1b
+    spriteID: 935edd1e229d8c942a16ac426ac913b8
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Frame 2 (4)_0: -383164587
+      Upgrades - Health_0: 742865671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

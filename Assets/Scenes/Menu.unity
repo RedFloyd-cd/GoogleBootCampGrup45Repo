@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Ayarlar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: "Tak\u0131m"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset to Defaults
+  m_text: "Varsay\u0131lan Ayarlara Geri D\xF6nd\xFCr"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music Volume
+  m_text: "M\xFCzik Seviyesi"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
   m_sharedMaterial: {fileID: 3007188020159749170, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1351444770, guid: 5f020eb5dd0dbdd4e8318aaae03af988, type: 3}
+  m_Sprite: {fileID: -383164587, guid: c695f2194f05ca54493ccfa8930fbd4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to Menu
+  m_text: "Men\xFCye D\xF6n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4052,7 +4052,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mute All
+  m_Text: Sustur
 --- !u!222 &1220900872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4588,7 +4588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: "Oyunu Ba\u015Flat"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
@@ -5419,7 +5419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -128}
+  m_AnchoredPosition: {x: 80, y: -128}
   m_SizeDelta: {x: 220, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723847036
@@ -5442,7 +5442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mouse Sensitivity
+  m_text: "Fare H\u0131z\u0131"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
   m_sharedMaterial: {fileID: 3007188020159749170, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
@@ -5591,7 +5591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fullscreen
+  m_Text: Tam Ekran
 --- !u!222 &1818267714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6296,7 +6296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -717054351, guid: 41d6ecaa8d2e69d4b831141ee68a6341, type: 3}
+  m_Sprite: {fileID: -370387290, guid: b421b85397f63ed4ba247ecc57d1a1a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6348,7 +6348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75, y: 132}
+  m_AnchoredPosition: {x: 97, y: 132}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041900965
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volume
+  m_text: Ses
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
   m_sharedMaterial: {fileID: 3007188020159749170, guid: 36d286ff09154814c806feb45b0c416e, type: 2}
@@ -6664,7 +6664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: "Oyundan \xC7\u0131k"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}

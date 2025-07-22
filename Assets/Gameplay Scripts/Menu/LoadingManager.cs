@@ -32,11 +32,11 @@ public class LoadingManager : MonoBehaviour
             }
 
             loadingBar.value = fakeProgress;
-            loadingText.text = "Loading... " + Mathf.RoundToInt(fakeProgress * 100f) + "%";
+            loadingText.text = "Yükleniyor... " + Mathf.RoundToInt(fakeProgress * 100f) + "%";
 
             if (fakeProgress >= 1f)
             {
-                loadingText.text = "Press any key to continue...";
+                loadingText.text = "Devam etmek için herhangi bir tuþa basýnýz...";
                 if (Input.anyKeyDown)
                 {
                     operation.allowSceneActivation = true;
