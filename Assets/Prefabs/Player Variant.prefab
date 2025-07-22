@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064734839374371533, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: bulletDamage
-      value: 70
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4064734839374371533, guid: 83607259215a1a540a14f9a36a558255, type: 3}
       propertyPath: bulletPrefab
@@ -189,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966862600508227239, guid: c3e70504d31929042899b5067e88eb1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.075
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8966862600508227239, guid: c3e70504d31929042899b5067e88eb1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.496
+      value: 1.373
       objectReference: {fileID: 0}
     - target: {fileID: 8966862600508227239, guid: c3e70504d31929042899b5067e88eb1d, type: 3}
       propertyPath: m_LocalPosition.z

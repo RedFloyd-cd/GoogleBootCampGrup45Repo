@@ -96,8 +96,7 @@ public class MeleeEnemyAI : MonoBehaviour
                     if (animator != null) animator.SetBool("isAttacking", true);
                     if (animator != null) animator.SetBool("isMoving", false);
                     lastAttackTime = Time.time;
-                    // Hasar animasyon eventiyle verilecekse Attack() burada çağrılmaz
-                    // Attack(); // Eğer animasyon eventi yoksa burayı açın
+                    Attack(); // Animasyon eventi yoksa burada çağrılır
                 }
                 // Saldırı sırasında da oyuncuya bak
                 Vector3 lookDir = (target.position - transform.position).normalized;
@@ -116,10 +115,11 @@ public class MeleeEnemyAI : MonoBehaviour
         if (isDead) return;
         if (target != null)
         {
-            PlayerController playerController = target.GetComponent<PlayerController>();
+            PlayerController playerController = target.GetComponentInChildren<PlayerController>();
             if (playerController != null)
             {
                 playerController.TakeDamage(damage);
+                Debug.Log($"Player'a {damage} hasar verildi!");
             }
         }
     }

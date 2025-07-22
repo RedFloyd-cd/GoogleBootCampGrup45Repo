@@ -14,9 +14,9 @@ public class RangedEnemyAI : MonoBehaviour
     public Animator animator; // Animator referansı
 
     private float maxHealth;
-    private bool isFleeing = false;
     private float lastAttackTime;
     private bool isDead = false;
+    private bool isAttackSpeedBoosted = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,44 +37,16 @@ public class RangedEnemyAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
 
-        // Can %30'un altına düştüyse kaçma moduna geç
-        if (!isFleeing && health <= maxHealth * 0.3f)
+        // Can %30'un altına düştüyse saldırı hızını %25 artır
+        if (!isAttackSpeedBoosted && health <= maxHealth * 0.3f)
         {
-            isFleeing = true;
+            attackCooldown *= 0.75f; // %25 daha hızlı saldır
+            isAttackSpeedBoosted = true;
         }
 
         if (distance <= detectionRadius && HasLineOfSight())
         {
-            if (isFleeing)
-            {
-                // Kaç: oyuncudan uzaklaş
-                Vector3 direction = (transform.position - target.position);
-                if (direction.magnitude > 0.05f)
-                {
-                    direction = direction.normalized;
-                    transform.position += direction * projectileSpeed * Time.deltaTime;
-                    if (animator != null) animator.SetBool("isMoving", true);
-                }
-                else
-                {
-                    if (animator != null) animator.SetBool("isMoving", false);
-                }
-                if (animator != null) animator.SetBool("isAttacking", false);
-                // Kaçış yönüne dön
-                if (direction != Vector3.zero)
-                {
-                    Quaternion toRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
-                }
-                // Kaçarken de ateş etmeye devam et
-                if (Time.time - lastAttackTime > attackCooldown && distance <= attackRange)
-                {
-                    if (animator != null) animator.SetBool("isAttacking", true);
-                    lastAttackTime = Time.time;
-                    Attack();
-                }
-            }
-            else if (distance > attackRange)
+            if (distance > attackRange)
             {
                 // Takip et
                 Vector3 direction = (target.position - transform.position);
