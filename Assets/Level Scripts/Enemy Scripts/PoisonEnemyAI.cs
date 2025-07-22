@@ -14,7 +14,7 @@ public class PoisonEnemyAI : MonoBehaviour
     public Animator animator;
 
     private float maxHealth;
-    private bool isFleeing = false;
+    private bool isEmpowered = false; // Güçlendirme uygulandı mı?
     private float lastAttackTime;
     private bool isDead = false;
 
@@ -35,40 +35,17 @@ public class PoisonEnemyAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
 
-        if (!isFleeing && health <= maxHealth * 0.3f)
+        // Empower logic: Can %30 altına düşünce bir kereye mahsus güçlen
+        if (!isEmpowered && health <= maxHealth * 0.3f)
         {
-            isFleeing = true;
+            isEmpowered = true;
+            damage *= 1.25f;
+            attackCooldown *= 0.75f; // cooldown azalırsa atış hızı artar
         }
 
         if (distance <= detectionRadius && HasLineOfSight())
         {
-            if (isFleeing)
-            {
-                Vector3 direction = (transform.position - target.position);
-                if (direction.magnitude > 0.05f)
-                {
-                    direction = direction.normalized;
-                    transform.position += direction * projectileSpeed * Time.deltaTime;
-                    if (animator != null) animator.SetBool("isMoving", true);
-                }
-                else
-                {
-                    if (animator != null) animator.SetBool("isMoving", false);
-                }
-                if (animator != null) animator.SetBool("isAttacking", false);
-                if (direction != Vector3.zero)
-                {
-                    Quaternion toRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
-                }
-                if (Time.time - lastAttackTime > attackCooldown && distance <= attackRange)
-                {
-                    if (animator != null) animator.SetBool("isAttacking", true);
-                    lastAttackTime = Time.time;
-                    Attack();
-                }
-            }
-            else if (distance > attackRange)
+            if (distance > attackRange)
             {
                 Vector3 direction = (target.position - transform.position);
                 if (direction.magnitude > 0.05f)
