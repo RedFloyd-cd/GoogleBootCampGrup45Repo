@@ -406,7 +406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7760424821077182890}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.91, y: 0.51, z: -7.6}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   detectionRadius: 18
   moveSpeed: 5
   teleportCooldown: 2.5
-  health: 120
+  health: 350
   projectilePrefab: {fileID: 4043767558306964303, guid: 1c27e05a627fdbb4484ca4eeaf9baf5a, type: 3}
   projectileSpeed: 12
   projectileDamage: 18
