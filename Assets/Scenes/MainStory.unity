@@ -359,22 +359,22 @@ MonoBehaviour:
   steps:
   - canvasObject: {fileID: 868566629}
     director: {fileID: 868566634}
-    nextSceneName: UpgradeTestScene
+    nextSceneName: TestREM01Map
   - canvasObject: {fileID: 939872813}
     director: {fileID: 939872814}
-    nextSceneName: TestREM01Map
+    nextSceneName: TestREM02Map
   - canvasObject: {fileID: 393653053}
     director: {fileID: 393653054}
-    nextSceneName: TestREM02Map
+    nextSceneName: TestREM03Map
   - canvasObject: {fileID: 29727949}
     director: {fileID: 29727950}
-    nextSceneName: TestREM03Map
+    nextSceneName: TestREM04Map
   - canvasObject: {fileID: 366583099}
     director: {fileID: 366583100}
-    nextSceneName: TestREM04Map
+    nextSceneName: TestREM05Map
   - canvasObject: {fileID: 422118062}
     director: {fileID: 422118063}
-    nextSceneName: TestREM05Map
+    nextSceneName: Menu
 --- !u!4 &97285952
 Transform:
   m_ObjectHideFlags: 0

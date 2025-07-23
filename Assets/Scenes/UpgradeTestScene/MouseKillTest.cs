@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class MouseKillTest : MonoBehaviour
 {
+#if UNITY_EDITOR
+    [Header("Test Ayarlarý")]
+    public bool testAktif = true;
+
     void OnMouseDown()
     {
-        Destroy(gameObject);
+        if (testAktif)
+        {
+            Destroy(gameObject);
+        }
     }
+#endif
 }

@@ -39,7 +39,9 @@ public class MainMenu : MonoBehaviour
     // --- Panel Control ---
     public void StartGame()
     {
-        SceneManager.LoadScene("LoadingScene");
+        PlayerPrefs.DeleteAll();  
+        PlayerPrefs.Save();       
+        SceneManager.LoadScene("LoadingScene"); 
     }
 
     public void OpenSettings() => settingsPanel.SetActive(true);
