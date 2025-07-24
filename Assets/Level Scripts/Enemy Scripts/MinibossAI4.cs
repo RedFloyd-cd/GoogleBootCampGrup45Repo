@@ -62,13 +62,45 @@ public class MinibossAI4 : MonoBehaviour
 
     void TeleportRandomly()
     {
-        Vector3 randomOffset = new Vector3(
+        int maxAttempts = 10;
+        float minibossRadius = 0.5f; // Miniboss'un yarıçapı, collider boyutuna göre ayarla
+        Vector3 halfExtents = new Vector3(minibossRadius, 1f, minibossRadius); // Yükseklik 1m varsayalım
+        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        {
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-teleportAreaSize.x / 2, teleportAreaSize.x / 2),
+                0,
+                Random.Range(-teleportAreaSize.z / 2, teleportAreaSize.z / 2)
+            );
+            Vector3 newPos = teleportAreaCenter + randomOffset;
+            // Yere temas için y koordinatını ayarla (gerekirse raycast ile zemini bulabilirsin)
+            newPos.y = transform.position.y;
+            // Çakışma kontrolü
+            Collider[] hits = Physics.OverlapBox(newPos, halfExtents, Quaternion.identity, ~0, QueryTriggerInteraction.Ignore);
+            bool hasCollision = false;
+            foreach (var hit in hits)
+            {
+                if (hit.gameObject != gameObject) // Kendi collider'ı hariç
+                {
+                    hasCollision = true;
+                    break;
+                }
+            }
+            if (!hasCollision)
+            {
+                transform.position = newPos;
+                return;
+            }
+        }
+        // Eğer uygun pozisyon bulunamazsa, son denemede yine de teleport et
+        Vector3 fallbackOffset = new Vector3(
             Random.Range(-teleportAreaSize.x / 2, teleportAreaSize.x / 2),
             0,
             Random.Range(-teleportAreaSize.z / 2, teleportAreaSize.z / 2)
         );
-        Vector3 newPos = teleportAreaCenter + randomOffset;
-        transform.position = newPos;
+        Vector3 fallbackPos = teleportAreaCenter + fallbackOffset;
+        fallbackPos.y = transform.position.y;
+        transform.position = fallbackPos;
     }
 
     void FireProjectile()
