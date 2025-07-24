@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
@@ -14,13 +14,19 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        
+        if (BackgroundMusicManager.Instance != null)
+        {
+            BackgroundMusicManager.Instance.FadeOutMusic();
+        }
+
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
-        Time.timeScale = 1f; // oyun tekrar aksýn
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
