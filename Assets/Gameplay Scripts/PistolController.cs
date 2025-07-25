@@ -2,7 +2,8 @@ using UnityEngine;
 using TMPro;
 
 public class PistolController : MonoBehaviour
-{
+{ 
+
     [Header("Pistol Settings")]
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -85,6 +86,8 @@ public class PistolController : MonoBehaviour
             return;
 
         Vector3 direction = (targetPoint - firePoint.position).normalized;
+
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)

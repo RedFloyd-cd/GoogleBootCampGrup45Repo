@@ -17,7 +17,8 @@ public class GameOverManager : MonoBehaviour
         
         if (BackgroundMusicManager.Instance != null)
         {
-            BackgroundMusicManager.Instance.FadeOutMusic();
+            BackgroundMusicManager.Instance.StopMusic(); 
+
         }
 
         gameOverPanel.SetActive(true);
