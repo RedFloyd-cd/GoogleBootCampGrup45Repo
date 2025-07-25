@@ -1059,6 +1059,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1769119680395821836, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: walkClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1d69b309d6526e47ba0149306eeeeaa, type: 3}
+    - target: {fileID: 1769119680395821836, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 420606075}
@@ -1066,6 +1070,10 @@ PrefabInstance:
       propertyPath: timeWarpPanel
       value: 
       objectReference: {fileID: 1341785157}
+    - target: {fileID: 1769119680395821836, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: walkAudioSource
+      value: 
+      objectReference: {fileID: 1461271749}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.23
@@ -1110,6 +1118,18 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1926960937}
+    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: fireClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c0247e5dacda05648afd2378617eb4e8, type: 3}
+    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: reloadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 45ae9f13d62e59a438bbe7e79787a305, type: 3}
+    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1461271749}
     - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: gunshotClip
       value: 
