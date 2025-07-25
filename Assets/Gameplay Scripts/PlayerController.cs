@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private bool isTimeWarpActive = false;
     private float timeWarpTimer;
 
+    [Header("Audio Settings")]
+    public AudioSource walkAudioSource;
+    public AudioClip walkClip;
+    public float walkVolume = 0.5f;
+    private bool isWalking = false;
+
     private Animator animator;
     private Camera mainCamera;
 
@@ -57,6 +63,14 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         UpdateUI();
+
+        // Yürüme sesi ayarları
+        if (walkAudioSource != null && walkClip != null)
+        {
+            walkAudioSource.clip = walkClip;
+            walkAudioSource.loop = true;
+            walkAudioSource.volume = walkVolume;
+        }
     }
 
 
@@ -84,9 +98,22 @@ public class PlayerController : MonoBehaviour
     // Movement & Rotation
     private void HandleMovement()
     {
-        if (isHit || isDashing) return;
+        if (isHit || isDashing) {
+            StopWalkSound();
+            return;
+        }
         Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         transform.Translate(moveDirection * Speed * Time.deltaTime, Space.World);
+
+        // Yürüme sesi kontrolü
+        if (moveInput.magnitude > 0.1f)
+        {
+            PlayWalkSound();
+        }
+        else
+        {
+            StopWalkSound();
+        }
     }
 
     private void HandleRotation()
@@ -313,6 +340,24 @@ public class PlayerController : MonoBehaviour
             timeWarpCooldownTimer = 0f;
 
             Debug.Log("TimeWarp yeniden kullanılabilir.");
+        }
+    }
+
+    private void PlayWalkSound()
+    {
+        if (walkAudioSource != null && !walkAudioSource.isPlaying)
+        {
+            walkAudioSource.Play();
+            isWalking = true;
+        }
+    }
+
+    private void StopWalkSound()
+    {
+        if (walkAudioSource != null && walkAudioSource.isPlaying)
+        {
+            walkAudioSource.Stop();
+            isWalking = false;
         }
     }
 }

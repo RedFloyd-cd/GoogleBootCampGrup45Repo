@@ -21,6 +21,13 @@ public class PistolController : MonoBehaviour
     private float lastFireTime;
     private bool isReloading = false;
 
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip fireClip;
+    public AudioClip reloadClip;
+    public float fireVolume = 0.7f;
+    public float reloadVolume = 0.7f;
+
     void Start()
     {
         bulletDamage = PlayerStats.Instance.damage;
@@ -66,6 +73,12 @@ public class PistolController : MonoBehaviour
         currentAmmo--;
         UpdateAmmoUI();
 
+        // Ateş sesi çal
+        if (audioSource != null && fireClip != null)
+        {
+            audioSource.PlayOneShot(fireClip, fireVolume);
+        }
+
         // Mouse pozisyonunu bul
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -102,6 +115,11 @@ public class PistolController : MonoBehaviour
     System.Collections.IEnumerator Reload()
     {
         isReloading = true;
+        // Reload sesi çal
+        if (audioSource != null && reloadClip != null)
+        {
+            audioSource.PlayOneShot(reloadClip, reloadVolume);
+        }
         // Burada reload animasyonu oynatılabilir
         yield return new WaitForSeconds(reloadTime);
         int neededAmmo = magazineSize - currentAmmo;
