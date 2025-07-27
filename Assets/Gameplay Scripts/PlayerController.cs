@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     public float timeWarpTimeScale = 0.2f;
     public float timeWarpDuration = 3f;
     public float timeWarpCooldown = 10f;
-    public GameObject timeWarpPanel;
     private float timeWarpCooldownTimer = 0f;
     private bool isTimeWarpOnCooldown = false;
     private bool isTimeWarpActive = false;
@@ -46,17 +45,19 @@ public class PlayerController : MonoBehaviour
     public float walkVolume = 0.5f;
     private bool isWalking = false;
 
+    [Header("Skill UI")]
+    public SkillCooldownUI dashUI;
+    public SkillCooldownUI timeWarpUI;
+
     private Animator animator;
     private Camera mainCamera;
 
-    // Unity Event Methods
     void Start()
     {
         mainCamera = Camera.main;
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
 
-        // Stat değerlerini PlayerStats'tan al
         maxHealth = PlayerStats.Instance.maxHealth;
         dashCooldown = PlayerStats.Instance.dashCooldown;
         timeWarpCooldown = PlayerStats.Instance.timeWarpCooldown;
@@ -64,7 +65,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         UpdateUI();
 
-        // Yürüme sesi ayarları
         if (walkAudioSource != null && walkClip != null)
         {
             walkAudioSource.clip = walkClip;
@@ -73,8 +73,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    private void Update()
+    void Update()
     {
         HandleHitTimer();
         HandleMovement();
@@ -89,23 +88,22 @@ public class PlayerController : MonoBehaviour
         HandleTimeWarpActive();
     }
 
-    // Input System Events
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
 
-    // Movement & Rotation
     private void HandleMovement()
     {
-        if (isHit || isDashing) {
+        if (isHit || isDashing)
+        {
             StopWalkSound();
             return;
         }
+
         Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         transform.Translate(moveDirection * Speed * Time.deltaTime, Space.World);
 
-        // Yürüme sesi kontrolü
         if (moveInput.magnitude > 0.1f)
         {
             PlayWalkSound();
@@ -119,6 +117,7 @@ public class PlayerController : MonoBehaviour
     private void HandleRotation()
     {
         if (isHit) return;
+
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         if (groundPlane.Raycast(ray, out float enter))
@@ -134,20 +133,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Hit Reaction
     private void HandleHitTrigger()
     {
         if (Keyboard.current.hKey.wasPressedThisFrame && !isHit)
         {
             animator.SetTrigger("Hit");
             isHit = true;
-            hitTimer = 1.4f; // Hit animasyon süresi
+            hitTimer = 1.4f;
         }
     }
 
     private void HandleHitTimer()
     {
         if (!isHit) return;
+
         hitTimer -= Time.deltaTime;
         if (hitTimer <= 0f)
         {
@@ -155,7 +154,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Animator
     private void UpdateAnimatorParameters()
     {
         if (isHit)
@@ -169,7 +167,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Health System
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
@@ -202,6 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             StopCoroutine(poisonCoroutine);
         }
+
         poisonCoroutine = StartCoroutine(PoisonEffect(tickDamage, duration, tickInterval));
     }
 
@@ -217,7 +215,6 @@ public class PlayerController : MonoBehaviour
         poisonCoroutine = null;
     }
 
-    // Dash System
     private void HandleDashInput()
     {
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !isDashing && !isOnCooldown)
@@ -246,6 +243,10 @@ public class PlayerController : MonoBehaviour
         cooldownTimer = dashCooldown;
         dashDirection = GetDashDirection();
         rb.linearVelocity = dashDirection * dashForce;
+
+        if (dashUI != null)
+            dashUI.StartCooldown(dashCooldown);
+
         Debug.Log("Dash başladı!");
     }
 
@@ -258,6 +259,7 @@ public class PlayerController : MonoBehaviour
     private void HandleDashCooldown()
     {
         if (!isOnCooldown) return;
+
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer <= 0f)
         {
@@ -273,12 +275,13 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.sKey.isPressed) move += Vector3.back;
         if (Keyboard.current.aKey.isPressed) move += Vector3.left;
         if (Keyboard.current.dKey.isPressed) move += Vector3.right;
+
         if (move == Vector3.zero)
             move = transform.forward;
+
         return move.normalized;
     }
 
-    // Time Warp System
     private void HandleTimeWarpInput()
     {
         if (Keyboard.current.qKey.wasPressedThisFrame && !isTimeWarpActive && !isTimeWarpOnCooldown)
@@ -292,7 +295,6 @@ public class PlayerController : MonoBehaviour
         if (isTimeWarpActive)
         {
             timeWarpTimer -= Time.unscaledDeltaTime;
-
             if (timeWarpTimer <= 0f)
             {
                 ResetTimeScale();
@@ -307,11 +309,11 @@ public class PlayerController : MonoBehaviour
         timeWarpTimer = timeWarpDuration;
         isTimeWarpActive = true;
 
-        if (timeWarpPanel != null)
-            timeWarpPanel.SetActive(true);
-
         isTimeWarpOnCooldown = true;
         timeWarpCooldownTimer = timeWarpCooldown;
+
+        if (timeWarpUI != null)
+            timeWarpUI.StartCooldown(timeWarpCooldown);
 
         Debug.Log("Zaman yavaşlatma aktif!");
     }
@@ -322,9 +324,6 @@ public class PlayerController : MonoBehaviour
         Time.fixedDeltaTime = 0.02f;
         isTimeWarpActive = false;
 
-        if (timeWarpPanel != null)
-            timeWarpPanel.SetActive(false);
-
         Debug.Log("Zaman normale döndü.");
     }
 
@@ -333,7 +332,6 @@ public class PlayerController : MonoBehaviour
         if (!isTimeWarpOnCooldown) return;
 
         timeWarpCooldownTimer -= Time.unscaledDeltaTime;
-
         if (timeWarpCooldownTimer <= 0f)
         {
             isTimeWarpOnCooldown = false;
