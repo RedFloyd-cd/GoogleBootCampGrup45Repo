@@ -2458,10 +2458,10 @@ MonoBehaviour:
   backgroundMusicSource: {fileID: 619725441}
   menuMusicClip: {fileID: 8300000, guid: 4fe49a66eca3c8f4c87d8f843643127e, type: 3}
   level1MusicClip: {fileID: 8300000, guid: 1d7a4e178c347fe44b5f06d8333abe78, type: 3}
-  level2MusicClip: {fileID: 8300000, guid: d01e110dcd9206947b1e0bf2959a3155, type: 3}
+  level2MusicClip: {fileID: 8300000, guid: c0f46e91a3054f84dbca20a558a436be, type: 3}
   level3MusicClip: {fileID: 8300000, guid: c62a509a2888e634ab8bfc07f80abade, type: 3}
-  level4MusicClip: {fileID: 0}
-  level5MusicClip: {fileID: 0}
+  level4MusicClip: {fileID: 8300000, guid: 2747b5eaca3f2d3478e07f66e4425e17, type: 3}
+  level5MusicClip: {fileID: 8300000, guid: c5f8b8c90bbc7ec42be8558aa40f65f8, type: 3}
   fadeDuration: 1.5
 --- !u!82 &619725441
 AudioSource:
