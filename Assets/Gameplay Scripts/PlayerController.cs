@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [Header("Health Settings")]
     public float maxHealth = 100f;
     private float currentHealth;
-    public Slider healthSlider;
+    public TextMeshProUGUI healthText;
     private Coroutine poisonCoroutine;
 
     [Header("Dash Settings")]
@@ -179,9 +180,9 @@ public class PlayerController : MonoBehaviour
 
     void UpdateUI()
     {
-        if (healthSlider != null)
+        if (healthText != null)
         {
-            healthSlider.value = currentHealth / maxHealth;
+            healthText.text = Mathf.RoundToInt(currentHealth) + " / " + Mathf.RoundToInt(maxHealth);
         }
     }
 
