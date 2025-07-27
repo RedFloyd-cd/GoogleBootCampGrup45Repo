@@ -377,7 +377,7 @@ MonoBehaviour:
     nextSceneName: TestREM05Map
   - canvasObject: {fileID: 422118062}
     director: {fileID: 422118063}
-    nextSceneName: Menu
+    nextSceneName: ThankYouScene
 --- !u!4 &97285952
 Transform:
   m_ObjectHideFlags: 0
