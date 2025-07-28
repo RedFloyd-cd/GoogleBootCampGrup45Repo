@@ -179,15 +179,23 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
   
   <summary> Görüşmelerin Ekran Görüntüleri </summary>
 
+<img width="726" height="489" alt="5" src="https://github.com/user-attachments/assets/49cc6640-b056-4817-8d51-84d984a5b45e" />
+<img width="715" height="648" alt="4" src="https://github.com/user-attachments/assets/2bfde01c-b9bb-42f9-b575-ccddf052afc8" />
+<img width="719" height="698" alt="2" src="https://github.com/user-attachments/assets/2963b191-31d4-487a-af04-b0fff47107c5" />
+<img width="707" height="718" alt="3" src="https://github.com/user-attachments/assets/4287ea31-cb83-4b45-b97d-9e2db8b85600" />
+<img width="713" height="753" alt="1" src="https://github.com/user-attachments/assets/93373b9d-c239-4513-b204-1ac1a63f5fae" />
+
 
 </details>
 
 ### ✅ Sprint Değerlendirme
+
 1. 🎨 Görsel & UI Çalışmaları
-  - Online sistemin temeli kuruldu; gelecekteki çoklu oyuncu veya çevrimiçi özellikler için ilk altyapı hazırlandı.
-  - Oyuncu skill paneli ve sağlık barı tamamlandı ve tüm map’lere başarıyla entegre edildi.
-  - Game Over Paneli düzenlendi; görsel tutarlılık artırıldı.
   - Ana menü yapısı tamamen oluşturuldu.
+  - Oyuncu skill paneli ve sağlık barı tamamlandı ve tüm map’lere başarıyla entegre edildi.
+  - Upgrade sisteminin tasarımları yapıldı.
+  - Game Over Paneli düzenlendi; görsel tutarlılık artırıldı.
+  - Online sistemin temeli kuruldu; gelecekteki çoklu oyuncu veya çevrimiçi özellikler için ilk altyapı hazırlandı.
   - Oyun içine fon eklendi ve skybox ile ortam zenginleştirildi.
 
 2. 🎵 Ses & Sahne Çalışmaları
@@ -196,8 +204,9 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
   - Ses kodları entegre edilerek seslerin sahnelerle uyumlu çalışması sağlandı.
 
 3. 👥 Oynanış Akışı
-  - Sahne sonu eklendi ve bağlandı; böylece oyun döngüsü tamamen tamamlandı.
   - UI ve sahne hataları revize edildi, akış daha stabil hale getirildi.
+  - Upgrade sistemi ana sahnelere entegre edildi.
+  - Sahne sonu eklendi ve bağlandı; böylece oyun döngüsü tamamen tamamlandı.
   - Duvarların collider’ları iyileştirildi; teknik sorunlar minimize edildi.
 
 4. 🐞 Teknik Düzenlemeler & Hata Düzeltmeleri
@@ -220,6 +229,10 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 
 <img width="1649" height="649" alt="DusmanYerlesimYeri1" src="https://github.com/user-attachments/assets/8c66cdfe-9e6d-4173-a37e-c82de0ca2e50" />
 <img width="1653" height="810" alt="DusmanYerlesimYeri" src="https://github.com/user-attachments/assets/e80df952-265b-4567-bc62-edbb6098e989" />
+
+- Upgrade Sistemi:
+
+<img width="1573" height="880" alt="Upgrade" src="https://github.com/user-attachments/assets/335c7eca-0538-4c5a-a1ba-44ccdab21ded" />
 
 - Sahne Arası Geçişler:
 
