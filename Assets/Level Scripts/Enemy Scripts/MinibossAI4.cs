@@ -63,8 +63,12 @@ public class MinibossAI4 : MonoBehaviour
     void TeleportRandomly()
     {
         int maxAttempts = 10;
-        float minibossRadius = 0.5f; // Miniboss'un yarıçapı, collider boyutuna göre ayarla
-        Vector3 halfExtents = new Vector3(minibossRadius, 1f, minibossRadius); // Yükseklik 1m varsayalım
+        float minibossRadius = 0.5f;
+        Vector3 halfExtents = new Vector3(minibossRadius, 1f, minibossRadius);
+
+        // Harita sınırlarını belirle (örnek değerler, kendi haritana göre ayarla)
+        float minX = -10f, maxX = 10f, minZ = -10f, maxZ = 10f;
+
         for (int attempt = 0; attempt < maxAttempts; attempt++)
         {
             Vector3 randomOffset = new Vector3(
@@ -73,34 +77,43 @@ public class MinibossAI4 : MonoBehaviour
                 Random.Range(-teleportAreaSize.z / 2, teleportAreaSize.z / 2)
             );
             Vector3 newPos = teleportAreaCenter + randomOffset;
-            // Yere temas için y koordinatını ayarla (gerekirse raycast ile zemini bulabilirsin)
-            newPos.y = transform.position.y;
-            // Çakışma kontrolü
-            Collider[] hits = Physics.OverlapBox(newPos, halfExtents, Quaternion.identity, ~0, QueryTriggerInteraction.Ignore);
-            bool hasCollision = false;
-            foreach (var hit in hits)
+
+            // Harita sınırları içinde mi?
+            newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+            newPos.z = Mathf.Clamp(newPos.z, minZ, maxZ);
+
+            // Yere temas için raycast
+            RaycastHit hit;
+            if (Physics.Raycast(newPos + Vector3.up * 5f, Vector3.down, out hit, 10f, LayerMask.GetMask("Ground")))
             {
-                if (hit.gameObject != gameObject) // Kendi collider'ı hariç
+                newPos.y = hit.point.y;
+
+                // Çakışma kontrolü
+                Collider[] hits = Physics.OverlapBox(newPos, halfExtents, Quaternion.identity, ~0, QueryTriggerInteraction.Ignore);
+                bool hasCollision = false;
+                foreach (var h in hits)
                 {
-                    hasCollision = true;
-                    break;
+                    if (h.gameObject != gameObject)
+                    {
+                        hasCollision = true;
+                        break;
+                    }
+                }
+                if (!hasCollision)
+                {
+                    transform.position = newPos;
+                    return;
                 }
             }
-            if (!hasCollision)
-            {
-                transform.position = newPos;
-                return;
-            }
         }
-        // Eğer uygun pozisyon bulunamazsa, son denemede yine de teleport et
-        Vector3 fallbackOffset = new Vector3(
-            Random.Range(-teleportAreaSize.x / 2, teleportAreaSize.x / 2),
-            0,
-            Random.Range(-teleportAreaSize.z / 2, teleportAreaSize.z / 2)
-        );
-        Vector3 fallbackPos = teleportAreaCenter + fallbackOffset;
-        fallbackPos.y = transform.position.y;
-        transform.position = fallbackPos;
+        // Son çare: merkezdeki zemine teleport et
+        RaycastHit fallbackHit;
+        Vector3 fallbackPos = teleportAreaCenter;
+        if (Physics.Raycast(fallbackPos + Vector3.up * 5f, Vector3.down, out fallbackHit, 10f, LayerMask.GetMask("Ground")))
+        {
+            fallbackPos.y = fallbackHit.point.y;
+            transform.position = fallbackPos;
+        }
     }
 
     void FireProjectile()
