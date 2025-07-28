@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PoisonEnemyAI : MonoBehaviour
 {
@@ -18,11 +19,18 @@ public class PoisonEnemyAI : MonoBehaviour
     private float lastAttackTime;
     private bool isDead = false;
 
+    public AudioSource audioSource;
+    public AudioClip enemyVoiceClip;
+
     void Start()
     {
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        audioSource.volume = 0.1f;
+        audioSource.clip = enemyVoiceClip;
+        audioSource.Play();
     }
 
     void Update()

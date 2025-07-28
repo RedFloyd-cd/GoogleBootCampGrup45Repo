@@ -18,12 +18,20 @@ public class RangedEnemyAI : MonoBehaviour
     private bool isDead = false;
     private bool isAttackSpeedBoosted = false;
 
+    public AudioSource audioSource;
+    public AudioClip enemyVoiceClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        
+        audioSource.clip = enemyVoiceClip;
+        audioSource.Play();
+        
     }
 
     // Update is called once per frame

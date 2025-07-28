@@ -18,11 +18,18 @@ public class MinibossAI4 : MonoBehaviour
     private float lastTeleportTime;
     private bool isDead = false;
 
+    public AudioSource audioSource;
+    public AudioClip enemyVoiceClip;
+
     void Start()
     {
         if (animator == null)
             animator = GetComponent<Animator>();
         teleportAreaCenter = transform.position; // Başlangıç pozisyonunu merkez olarak al
+
+        audioSource.volume = 0.1f;
+        audioSource.clip = enemyVoiceClip;
+        audioSource.Play();
     }
 
     void Update()

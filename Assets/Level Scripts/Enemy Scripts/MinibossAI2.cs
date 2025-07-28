@@ -17,11 +17,19 @@ public class MinibossAI2 : MonoBehaviour
     private bool isDead = false;
     private bool isUltraEnraged = false;
 
+    public AudioSource audioSource;
+    public AudioClip enemyVoiceClip;
+
     void Start()
     {
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        audioSource.volume = 0.1f;
+        audioSource.clip = enemyVoiceClip;
+        audioSource.Play();
+        
     }
 
     void Update()

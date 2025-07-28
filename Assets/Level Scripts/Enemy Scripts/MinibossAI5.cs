@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MinibossAI5 : MonoBehaviour
 {
@@ -26,12 +27,18 @@ public class MinibossAI5 : MonoBehaviour
     private bool isDead = false;
     private int currentPhase = 1;
 
+    public AudioSource audioSource;
+    public AudioClip enemyVoiceClip;
     void Start()
     {
         maxHealth = health;
         teleportAreaCenter = transform.position;
         if (animator == null)
             animator = GetComponent<Animator>();
+
+        audioSource.volume = 0.1f;
+        audioSource.clip = enemyVoiceClip;
+        audioSource.Play();
     }
 
     void Update()

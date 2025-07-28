@@ -23,7 +23,7 @@ public class BackgroundMusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            backgroundMusicSource.volume = 0.5f;
+            backgroundMusicSource.volume = 0.6f;
         }
         else
         {
