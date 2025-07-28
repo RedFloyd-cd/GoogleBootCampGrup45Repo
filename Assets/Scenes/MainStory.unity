@@ -4094,7 +4094,7 @@ MonoBehaviour:
     katmanlar\u0131na giri\u015F izni onayland\u0131.\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5029,7 +5029,7 @@ MonoBehaviour:
     yeniden kurmak.\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6062767350410667723, guid: 1417a73766480fa40aaaa266a89b4ea0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
