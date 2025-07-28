@@ -173,6 +173,7 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 - Bir önceki sprintte belirlenen hedeflerin hepsi başarıyla gerçekleştirilmiştir.
 - Toplam sprintte tamamlanması gereken puan 60 başarıyla tamamlanmıştır.
 - Oyun içinde kullanılan assetlerin bir kısmı tasarlandı bir kısmı ise ücretsiz assetlerden kullanıldı. Ücretsiz asset linkleri Miro'da yer almaktadır.
+- Oyun içi sesler, Suno ve ElevenLabs AI araçları vasıtasıyla oluşturulmuştur.
 - Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmaya devam edilmiştir.
 
 <details>
