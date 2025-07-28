@@ -114,7 +114,7 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 </details>
 
 ### ✅ Sprint Değerlendirme
-1. 🎨Görsel & UI Çalışmaları
+1. 🎨 Görsel & UI Çalışmaları
   - Level UI tasarlandı ve eklendi.
   - Loading Scene UI yerleştirildi ve tasarım uyumu sağlandı.
   - Settings ve Credits panelleri geliştirildi, düzenlemeler yapıldı.
@@ -168,5 +168,79 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 - 🎯 Oynanabilirliğinin iyileştirilmesi ve geri bildirimlerin toplanması.
 
 
-
 # Sprint 3
+
+- Bir önceki sprintte belirlenen hedeflerin hepsi başarıyla gerçekleştirilmiştir.
+- Toplam sprintte tamamlanması gereken puan 60 başarıyla tamamlanmıştır.
+- Oyun içinde kullanılan assetlerin bir kısmı tasarlandı bir kısmı ise ücretsiz assetlerden kullanıldı. Ücretsiz asset linkleri Miro'da yer almaktadır.
+- Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmaya devam edilmiştir.
+
+<details>
+  
+  <summary> Görüşmelerin Ekran Görüntüleri </summary>
+
+
+</details>
+
+### ✅ Sprint Değerlendirme
+1. 🎨 Görsel & UI Çalışmaları
+  - Online sistemin temeli kuruldu; gelecekteki çoklu oyuncu veya çevrimiçi özellikler için ilk altyapı hazırlandı.
+  - Oyuncu skill paneli ve sağlık barı tamamlandı ve tüm map’lere başarıyla entegre edildi.
+  - Game Over Paneli düzenlendi; görsel tutarlılık artırıldı.
+  - Ana menü yapısı tamamen oluşturuldu.
+  - Oyun içine fon eklendi ve skybox ile ortam zenginleştirildi.
+
+2. 🎵 Ses & Sahne Çalışmaları
+  - Bölüm müzikleri projeye eklendi; atmosfer ve duygusal etki güçlendirildi.
+  - Oyuncu sesleri ve genel oyun sesleri oluşturuldu.
+  - Ses kodları entegre edilerek seslerin sahnelerle uyumlu çalışması sağlandı.
+
+3. 👥 Oynanış Akışı
+  - Sahne sonu eklendi ve bağlandı; böylece oyun döngüsü tamamen tamamlandı.
+  - UI ve sahne hataları revize edildi, akış daha stabil hale getirildi.
+  - Duvarların collider’ları iyileştirildi; teknik sorunlar minimize edildi.
+
+4. 🐞 Teknik Düzenlemeler & Hata Düzeltmeleri
+  - Her bir maplere düşman modelleri yerleştirildi.
+  - Miniboss bug fix ile oynanış hataları azaltıldı.
+
+<details>
+  
+  <summary> Oyun Gelişim Aşamaları </summary>
+  
+- Ane Menü:
+
+![AnaMenu](https://github.com/user-attachments/assets/5f46da7c-3723-4e3b-8dfe-d68631b55d9c)
+
+- Oyun İçi UI Görüntüsü:
+
+<img width="1478" height="833" alt="UI" src="https://github.com/user-attachments/assets/cd5d6a33-8e9b-4165-ac5a-6298dbf2edc8" />
+
+- Düşman Modellerin Haritalara Yerleşimi:
+
+<img width="1649" height="649" alt="DusmanYerlesimYeri1" src="https://github.com/user-attachments/assets/8c66cdfe-9e6d-4173-a37e-c82de0ca2e50" />
+<img width="1653" height="810" alt="DusmanYerlesimYeri" src="https://github.com/user-attachments/assets/e80df952-265b-4567-bc62-edbb6098e989" />
+
+- Sahne Arası Geçişler:
+
+  <img width="1411" height="794" alt="SahneArası" src="https://github.com/user-attachments/assets/2b8b3fc2-7e75-45f1-afea-1c88d2441769" />
+
+- Game Over Paneli:
+
+<img width="1405" height="789" alt="GameOver" src="https://github.com/user-attachments/assets/23d28ca5-e08a-4d21-8210-5e0849c48c7d" />
+
+- Sahne Sonu Ekranı:
+
+<img width="1478" height="832" alt="ThankYouScene" src="https://github.com/user-attachments/assets/0cb4d2ec-13c8-4edd-a9b8-a14a7e0373a5" />
+
+
+</details>
+
+### Sprint Sonu Genel Değerlendirme
+🎯 Bu sprintlerin sonunda, Psycho REM artık oynanabilir bir demo prototip seviyesine ulaşmış durumda. Takım içi iletişim ve iş bölümü eşit dağıtıldı; tasarım, kod ve ses ekipleri paralel ilerleyebildi. Bundan sonraki odak: prototipi daha pürüzsüz, daha akıcı ve daha ikna edici bir deneyime dönüştürmek; kullanıcı testlerinden alınan geri bildirimlerle sürekli geliştirmek.
+
+Teşekkür ederiz!
+
+<img width="264" height="83" alt="Son" src="https://github.com/user-attachments/assets/eac58315-c975-4fd2-be7f-6a07149edb96" />
+
+# PsycoREM Video
