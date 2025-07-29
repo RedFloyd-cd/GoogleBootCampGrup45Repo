@@ -380,9 +380,9 @@ RectTransform:
   - {fileID: 380862215}
   - {fileID: 1824874973}
   - {fileID: 1753960536}
+  - {fileID: 1492894579}
   - {fileID: 1769550603}
   - {fileID: 1167174573}
-  - {fileID: 1492894579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
