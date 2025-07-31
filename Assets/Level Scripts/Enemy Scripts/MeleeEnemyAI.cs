@@ -12,11 +12,15 @@ public class MeleeEnemyAI : MonoBehaviour
     public GameObject ammoPickupPrefab; // Inspector'dan atanacak
     public Animator animator; // Animator referansı
 
+    [Header("Obstacle Avoidance")]
+    public float obstacleCheckDistance = 1.5f; // Engel kontrol mesafesi
+    public float avoidanceStrength = 2f; // Kaçınma gücü
+    public LayerMask obstacleLayerMask = -1; // Engel layer'ları
+
     private float maxHealth;
     private bool isFleeing = false;
     private float lastAttackTime;
     private bool isDead = false;
-
 
     public AudioSource audioSource;
     public AudioClip enemyVoiceClip;
@@ -58,7 +62,9 @@ public class MeleeEnemyAI : MonoBehaviour
             if (fleeDirection.magnitude > 0.05f) // Çok yakınsa hareket etme
             {
                 fleeDirection = fleeDirection.normalized;
-                transform.position += fleeDirection * moveSpeed * Time.deltaTime;
+                // Engel kontrolü ve kaçınma
+                Vector3 adjustedDirection = AvoidObstacles(fleeDirection);
+                transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
                 if (animator != null) animator.SetBool("isMoving", true);
             }
             else
@@ -81,7 +87,9 @@ public class MeleeEnemyAI : MonoBehaviour
                 if (direction.magnitude > 0.05f) // Çok yakınsa hareket etme
                 {
                     direction = direction.normalized;
-                    transform.position += direction * moveSpeed * Time.deltaTime;
+                    // Engel kontrolü ve kaçınma
+                    Vector3 adjustedDirection = AvoidObstacles(direction);
+                    transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
                     if (animator != null) animator.SetBool("isMoving", true);
                 }
                 else
@@ -116,6 +124,54 @@ public class MeleeEnemyAI : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Engel kaçınma fonksiyonu
+    Vector3 AvoidObstacles(Vector3 desiredDirection)
+    {
+        Vector3 avoidanceDirection = Vector3.zero;
+        
+        // Önünde engel var mı kontrol et
+        if (Physics.Raycast(transform.position, desiredDirection, obstacleCheckDistance, obstacleLayerMask))
+        {
+            // Sağa ve sola raycast atarak alternatif yollar ara
+            Vector3 rightDirection = Quaternion.Euler(0, 45, 0) * desiredDirection;
+            Vector3 leftDirection = Quaternion.Euler(0, -45, 0) * desiredDirection;
+            
+            bool rightBlocked = Physics.Raycast(transform.position, rightDirection, obstacleCheckDistance, obstacleLayerMask);
+            bool leftBlocked = Physics.Raycast(transform.position, leftDirection, obstacleCheckDistance, obstacleLayerMask);
+            
+            if (!rightBlocked && leftBlocked)
+            {
+                // Sağa git
+                avoidanceDirection = rightDirection;
+            }
+            else if (rightBlocked && !leftBlocked)
+            {
+                // Sola git
+                avoidanceDirection = leftDirection;
+            }
+            else if (!rightBlocked && !leftBlocked)
+            {
+                // Her iki taraf da açık, daha iyi olanı seç
+                float rightDistance = Vector3.Distance(transform.position + rightDirection * obstacleCheckDistance, target.position);
+                float leftDistance = Vector3.Distance(transform.position + leftDirection * obstacleCheckDistance, target.position);
+                
+                avoidanceDirection = rightDistance < leftDistance ? rightDirection : leftDirection;
+            }
+            else
+            {
+                // Her iki taraf da kapalı, geri git
+                avoidanceDirection = -desiredDirection;
+            }
+        }
+        else
+        {
+            // Engel yok, normal yönde git
+            avoidanceDirection = desiredDirection;
+        }
+        
+        return avoidanceDirection.normalized;
     }
 
     // Animasyon eventiyle çağrılabilir
@@ -180,5 +236,20 @@ public class MeleeEnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        
+        // Engel kontrol raycast'lerini göster
+        if (target != null)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, direction * obstacleCheckDistance);
+            
+            Vector3 rightDirection = Quaternion.Euler(0, 45, 0) * direction;
+            Vector3 leftDirection = Quaternion.Euler(0, -45, 0) * direction;
+            
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, rightDirection * obstacleCheckDistance);
+            Gizmos.DrawRay(transform.position, leftDirection * obstacleCheckDistance);
+        }
     }
 }
