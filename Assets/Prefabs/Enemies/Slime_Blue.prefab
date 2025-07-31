@@ -77,9 +77,16 @@ MonoBehaviour:
   moveSpeed: 3
   attackCooldown: 1.5
   health: 175
-  damage: 35
+  damage: 30
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 6855264609311368972}
+  obstacleCheckDistance: 1.5
+  avoidanceStrength: 2
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  audioSource: {fileID: 0}
+  enemyVoiceClip: {fileID: 0}
 --- !u!65 &7985909117359098646
 BoxCollider:
   m_ObjectHideFlags: 0
