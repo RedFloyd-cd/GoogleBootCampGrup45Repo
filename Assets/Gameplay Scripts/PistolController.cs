@@ -79,27 +79,14 @@ public class PistolController : MonoBehaviour
             audioSource.PlayOneShot(fireClip, fireVolume);
         }
 
-        // Mouse pozisyonunu bul
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit, 100f))
-        {
-            targetPoint = hit.point;
-        }
-        else
-        {
-            targetPoint = ray.GetPoint(100f);
-        }
-        // Yalnızca yatay düzlemde hedefle
-        targetPoint.y = firePoint.position.y;
+        Vector3 direction = GetFiringDirection();
 
-        // Hedef çok yakınsa ateş etme
-        if (Vector3.Distance(firePoint.position, targetPoint) < minFireDistance)
+        // Hedef çok yakınsa ateş etme (firePoint'ten belirli bir mesafede kontrol)
+        if (Vector3.Distance(firePoint.position, firePoint.position + direction * minFireDistance) < minFireDistance)
             return;
 
-        Vector3 direction = (targetPoint - firePoint.position).normalized;
-
+        // Debug için raycast çizgisi (sadece geliştirme sırasında)
+        Debug.DrawRay(firePoint.position, direction * 10f, Color.red, 1f);
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -110,6 +97,27 @@ public class PistolController : MonoBehaviour
         // Bullet scripti yerine dinamik olarak çarpışma ve hasar scripti ekle
         bullet.AddComponent<BulletCollision>().Init(bulletDamage);
         Destroy(bullet, 3f); // mermiyi 3 saniye sonra yok et
+    }
+
+    // Daha güvenilir ateş yönü hesaplama
+    Vector3 GetFiringDirection()
+    {
+        // Mouse pozisyonunu dünya koordinatlarına çevir
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.transform.position.y; // Kameranın yüksekliğini kullan
+        
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        
+        // FirePoint'ten mouse pozisyonuna yön hesapla
+        Vector3 direction = (worldMousePos - firePoint.position).normalized;
+        
+        // Eğer yön çok küçükse (mouse firePoint'in üzerindeyse), kameranın ileri yönünü kullan
+        if (direction.magnitude < 0.1f)
+        {
+            direction = Camera.main.transform.forward;
+        }
+        
+        return direction;
     }
 
     System.Collections.IEnumerator Reload()
