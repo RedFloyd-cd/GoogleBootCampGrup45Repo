@@ -108,7 +108,7 @@ MonoBehaviour:
   bulletDamage: 40
   minFireDistance: 1.5
   ammoText: {fileID: 0}
-  maxAmmo: 48
+  maxAmmo: 64
   audioSource: {fileID: 0}
   fireClip: {fileID: 0}
   reloadClip: {fileID: 0}
