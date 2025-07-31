@@ -436,10 +436,12 @@ MonoBehaviour:
   attackCooldown: 1.2
   projectilePrefab: {fileID: 4043767558306964303, guid: 1c27e05a627fdbb4484ca4eeaf9baf5a, type: 3}
   projectileSpeed: 10
-  health: 160
+  health: 150
   damage: 16
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 3591178193706484835}
+  audioSource: {fileID: 0}
+  enemyVoiceClip: {fileID: 0}
 --- !u!54 &5184524951074647648
 Rigidbody:
   m_ObjectHideFlags: 0
