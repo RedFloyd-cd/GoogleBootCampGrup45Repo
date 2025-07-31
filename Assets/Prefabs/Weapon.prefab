@@ -101,14 +101,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5647862345474238663, guid: b22cb316acd468a45b28d3ead1ee168a, type: 3}
   firePoint: {fileID: 720500766838866939}
-  fireForce: 20
+  fireForce: 30
   fireRate: 0.4
   magazineSize: 8
   reloadTime: 1.5
   bulletDamage: 40
   minFireDistance: 1.5
   ammoText: {fileID: 0}
-  maxAmmo: 32
+  maxAmmo: 48
   audioSource: {fileID: 0}
   fireClip: {fileID: 0}
   reloadClip: {fileID: 0}
