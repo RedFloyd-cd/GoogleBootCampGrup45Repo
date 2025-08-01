@@ -12,6 +12,7 @@ public class RangedEnemyAI : MonoBehaviour
     public float damage = 8f; // Düşman hasarı
     public GameObject ammoPickupPrefab; // Inspector'dan atanacak
     public Animator animator; // Animator referansı
+    private Rigidbody rb; // Rigidbody referansı
 
     private float maxHealth;
     private float lastAttackTime;
@@ -27,11 +28,24 @@ public class RangedEnemyAI : MonoBehaviour
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+        
+        // Rigidbody referansını al
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("RangedEnemy'de Rigidbody bulunamadı!");
+        }
 
         
         audioSource.clip = enemyVoiceClip;
         audioSource.Play();
         
+        // Collider ayarlarını kontrol et
+        var collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            Debug.Log($"RangedEnemy collider: IsTrigger={collider.isTrigger}, Layer={gameObject.layer}");
+        }
     }
 
     // Update is called once per frame
@@ -61,7 +75,14 @@ public class RangedEnemyAI : MonoBehaviour
                 if (direction.magnitude > 0.05f)
                 {
                     direction = direction.normalized;
-                    transform.position += direction * projectileSpeed * Time.deltaTime;
+                    if (rb != null)
+                    {
+                        rb.MovePosition(rb.position + direction * projectileSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.position += direction * projectileSpeed * Time.deltaTime;
+                    }
                     if (animator != null) animator.SetBool("isMoving", true);
                 }
                 else

@@ -102,11 +102,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5647862345474238663, guid: b22cb316acd468a45b28d3ead1ee168a, type: 3}
   firePoint: {fileID: 720500766838866939}
   fireForce: 30
-  fireRate: 0.4
+  fireRate: 0.6
   magazineSize: 8
-  reloadTime: 1.5
+  reloadTime: 1.25
   bulletDamage: 50
-  minFireDistance: 3
   ammoText: {fileID: 0}
   maxAmmo: 64
   audioSource: {fileID: 0}

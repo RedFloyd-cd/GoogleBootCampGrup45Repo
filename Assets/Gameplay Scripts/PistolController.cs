@@ -11,8 +11,7 @@ public class PistolController : MonoBehaviour
     public float fireRate = 0.4f; // Atışlar arası süre
     public int magazineSize = 8;
     public float reloadTime = 1.5f;
-    public float bulletDamage = 20f;
-    public float minFireDistance = 1.5f; // Minimum ateş mesafesi
+    public float bulletDamage = 50f;
     public TextMeshProUGUI ammoText;
     public int maxAmmo = 32;
     private int currentTotalAmmo;
@@ -34,6 +33,13 @@ public class PistolController : MonoBehaviour
         currentAmmo = magazineSize;
         currentTotalAmmo = maxAmmo;
         UpdateAmmoUI();
+        
+        // Debug: Pistol ayarlarını kontrol et
+        Debug.Log($"Pistol başlatıldı - BulletDamage: {bulletDamage}");
+        Debug.Log($"BulletPrefab: {(bulletPrefab != null ? bulletPrefab.name : "NULL")}");
+        Debug.Log($"FirePoint: {(firePoint != null ? firePoint.name : "NULL")}");
+        Debug.Log($"FireForce: {fireForce}");
+        Debug.Log($"MagazineSize: {magazineSize}, MaxAmmo: {maxAmmo}");
     }
 
     void Update()
@@ -73,6 +79,20 @@ public class PistolController : MonoBehaviour
         currentAmmo--;
         UpdateAmmoUI();
 
+        // Debug: Mermi prefab kontrolü
+        if (bulletPrefab == null)
+        {
+            Debug.LogError("BulletPrefab atanmamış! Inspector'da bulletPrefab'ı atayın.");
+            return;
+        }
+
+        // Debug: FirePoint kontrolü
+        if (firePoint == null)
+        {
+            Debug.LogError("FirePoint atanmamış! Inspector'da firePoint'i atayın.");
+            return;
+        }
+
         // Ateş sesi çal
         if (audioSource != null && fireClip != null)
         {
@@ -80,23 +100,40 @@ public class PistolController : MonoBehaviour
         }
 
         Vector3 direction = GetFiringDirection();
-
-        // Hedef çok yakınsa ateş etme (firePoint'ten belirli bir mesafede kontrol)
-        if (Vector3.Distance(firePoint.position, firePoint.position + direction * minFireDistance) < minFireDistance)
-            return;
+        Debug.Log($"Ateş yönü: {direction}");
 
         // Debug için raycast çizgisi (sadece geliştirme sırasında)
         Debug.DrawRay(firePoint.position, direction * 10f, Color.red, 1f);
 
+        // Mermi oluştur
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
+        
+        if (bullet == null)
+        {
+            Debug.LogError("Mermi oluşturulamadı!");
+            return;
+        }
+        
+        Debug.Log($"Mermi oluşturuldu: {bullet.name} pozisyon: {bullet.transform.position}");
+
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.linearVelocity = direction * fireForce;
+            // Collision detection'ı aç
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            Debug.Log($"Mermi hızı: {rb.linearVelocity}");
         }
+        else
+        {
+            Debug.LogWarning("Mermi prefabında Rigidbody yok!");
+        }
+
         // Bullet scripti yerine dinamik olarak çarpışma ve hasar scripti ekle
         bullet.AddComponent<BulletCollision>().Init(bulletDamage);
         Destroy(bullet, 3f); // mermiyi 3 saniye sonra yok et
+        
+        Debug.Log($"Mermi ateşlendi - Hasar: {bulletDamage}, Kalan mermi: {currentAmmo}");
     }
 
     // Daha güvenilir ateş yönü hesaplama
@@ -159,12 +196,30 @@ public class BulletCollision : MonoBehaviour
 {
     private float damage;
     public void Init(float dmg) { damage = dmg; }
+    
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Mermi çarptı: {collision.gameObject.name}");
+        Debug.Log($"Mermi collision: {collision.gameObject.name}");
+        CheckForEnemy(collision.gameObject);
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Mermi trigger: {other.gameObject.name}");
+        CheckForEnemy(other.gameObject);
+    }
+    
+    void CheckForEnemy(GameObject target)
+    {
+        // Debug: Collider bilgilerini yazdır
+        var collider = target.GetComponent<Collider>();
+        if (collider != null)
+        {
+            Debug.Log($"Hedef: {target.name}, IsTrigger: {collider.isTrigger}, Layer: {target.layer}");
+        }
         
         // PoisonEnemyAI
-        var poison = collision.gameObject.GetComponent<PoisonEnemyAI>();
+        var poison = target.GetComponent<PoisonEnemyAI>();
         if (poison != null)
         {
             Debug.Log($"PoisonEnemy'ye çarptı, hasar: {damage}");
@@ -173,38 +228,49 @@ public class BulletCollision : MonoBehaviour
             return;
         }
         // MeleeEnemyAI
-        var melee = collision.gameObject.GetComponent<MeleeEnemyAI>();
+        var melee = target.GetComponent<MeleeEnemyAI>();
         if (melee != null)
         {
+            Debug.Log($"MeleeEnemy'ye çarptı, hasar: {damage}");
             melee.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }
         // RangedEnemyAI
-        var ranged = collision.gameObject.GetComponent<RangedEnemyAI>();
+        var ranged = target.GetComponent<RangedEnemyAI>();
         if (ranged != null)
         {
+            Debug.Log($"RangedEnemy'ye çarptı, hasar: {damage}");
             ranged.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }
         // MinibossAI
-        var miniboss = collision.gameObject.GetComponent<MinibossAI>();
+        var miniboss = target.GetComponent<MinibossAI>();
         if (miniboss != null)
         {
+            Debug.Log($"MinibossAI'ye çarptı, hasar: {damage}");
             miniboss.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }
         // MinibossAI4
-        var miniboss4 = collision.gameObject.GetComponent<MinibossAI4>();
+        var miniboss4 = target.GetComponent<MinibossAI4>();
         if (miniboss4 != null)
         {
+            Debug.Log($"MinibossAI4'e çarptı, hasar: {damage}");
             miniboss4.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }
-        // İsteğe bağlı: başka bir şeye çarparsa da yok et
-        Destroy(gameObject);
+        
+        // Eğer düşman değilse ve duvar/engel ise mermiyi yok et
+        if (target.layer == LayerMask.NameToLayer("Default") || 
+            target.layer == LayerMask.NameToLayer("Ground") ||
+            target.CompareTag("Wall"))
+        {
+            Debug.Log($"Duvara çarptı: {target.name}");
+            Destroy(gameObject);
+        }
     }
 }

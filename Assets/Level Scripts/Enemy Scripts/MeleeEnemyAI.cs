@@ -11,6 +11,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public float damage = 10f; // Düşman hasarı
     public GameObject ammoPickupPrefab; // Inspector'dan atanacak
     public Animator animator; // Animator referansı
+    private Rigidbody rb; // Rigidbody referansı
 
     [Header("Obstacle Avoidance")]
     public float obstacleCheckDistance = 1.5f; // Engel kontrol mesafesi
@@ -31,11 +32,24 @@ public class MeleeEnemyAI : MonoBehaviour
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+        
+        // Rigidbody referansını al
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("MeleeEnemy'de Rigidbody bulunamadı!");
+        }
 
         audioSource.volume = 0.1f;
         audioSource.clip = enemyVoiceClip;
         audioSource.Play();
         
+        // Collider ayarlarını kontrol et
+        var collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            Debug.Log($"MeleeEnemy collider: IsTrigger={collider.isTrigger}, Layer={gameObject.layer}");
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +78,14 @@ public class MeleeEnemyAI : MonoBehaviour
                 fleeDirection = fleeDirection.normalized;
                 // Engel kontrolü ve kaçınma
                 Vector3 adjustedDirection = AvoidObstacles(fleeDirection);
-                transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
+                if (rb != null)
+                {
+                    rb.MovePosition(rb.position + adjustedDirection * moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
+                }
                 if (animator != null) animator.SetBool("isMoving", true);
             }
             else
@@ -89,7 +110,14 @@ public class MeleeEnemyAI : MonoBehaviour
                     direction = direction.normalized;
                     // Engel kontrolü ve kaçınma
                     Vector3 adjustedDirection = AvoidObstacles(direction);
-                    transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
+                    if (rb != null)
+                    {
+                        rb.MovePosition(rb.position + adjustedDirection * moveSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.position += adjustedDirection * moveSpeed * Time.deltaTime;
+                    }
                     if (animator != null) animator.SetBool("isMoving", true);
                 }
                 else

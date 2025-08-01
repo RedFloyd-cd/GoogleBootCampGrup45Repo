@@ -78,10 +78,12 @@ MonoBehaviour:
   meleeRange: 2.5
   moveSpeed: 6
   attackCooldown: 1.2
-  health: 250
+  health: 150
   meleeDamage: 30
   animator: {fileID: 1882911661098876043}
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
+  audioSource: {fileID: 0}
+  enemyVoiceClip: {fileID: 0}
 --- !u!95 &1882911661098876043
 Animator:
   serializedVersion: 7

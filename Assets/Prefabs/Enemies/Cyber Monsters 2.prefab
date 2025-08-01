@@ -3565,7 +3565,7 @@ MonoBehaviour:
   meleeRange: 2.5
   moveSpeed: 2
   attackCooldown: 1.5
-  health: 1000
+  health: 400
   meleeDamage: 30
   areaAttackRadius: 5
   areaAttackDamage: 45
@@ -3577,6 +3577,8 @@ MonoBehaviour:
   animator: {fileID: 7991420820030728411}
   teleportAreaCenter: {x: 0, y: 0, z: 0}
   teleportAreaSize: {x: 12, y: 0, z: 12}
+  audioSource: {fileID: 0}
+  enemyVoiceClip: {fileID: 0}
 --- !u!1 &3808950783199684565
 GameObject:
   m_ObjectHideFlags: 0

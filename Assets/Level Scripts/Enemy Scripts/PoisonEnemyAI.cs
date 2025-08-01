@@ -13,6 +13,7 @@ public class PoisonEnemyAI : MonoBehaviour
     public float damage = 6f;
     public GameObject ammoPickupPrefab;
     public Animator animator;
+    private Rigidbody rb; // Rigidbody referansı
 
     private float maxHealth;
     private bool isEmpowered = false; // Güçlendirme uygulandı mı?
@@ -27,10 +28,24 @@ public class PoisonEnemyAI : MonoBehaviour
         maxHealth = health;
         if (animator == null)
             animator = GetComponent<Animator>();
+        
+        // Rigidbody referansını al
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("PoisonEnemy'de Rigidbody bulunamadı!");
+        }
 
         audioSource.volume = 0.1f;
         audioSource.clip = enemyVoiceClip;
         audioSource.Play();
+        
+        // Collider ayarlarını kontrol et
+        var collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            Debug.Log($"PoisonEnemy collider: IsTrigger={collider.isTrigger}, Layer={gameObject.layer}");
+        }
     }
 
     void Update()
@@ -59,7 +74,14 @@ public class PoisonEnemyAI : MonoBehaviour
                 if (direction.magnitude > 0.05f)
                 {
                     direction = direction.normalized;
-                    transform.position += direction * projectileSpeed * Time.deltaTime;
+                    if (rb != null)
+                    {
+                        rb.MovePosition(rb.position + direction * projectileSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.position += direction * projectileSpeed * Time.deltaTime;
+                    }
                     if (animator != null) animator.SetBool("isMoving", true);
                 }
                 else

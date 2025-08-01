@@ -455,7 +455,7 @@ MonoBehaviour:
   detectionRadius: 18
   moveSpeed: 5
   teleportCooldown: 2.5
-  health: 120
+  health: 250
   projectilePrefab: {fileID: 4043767558306964303, guid: 1c27e05a627fdbb4484ca4eeaf9baf5a, type: 3}
   projectileSpeed: 12
   projectileDamage: 18
@@ -463,6 +463,8 @@ MonoBehaviour:
   animator: {fileID: 793827669612733636}
   teleportAreaCenter: {x: 0, y: 0, z: 0}
   teleportAreaSize: {x: 20, y: 0, z: 20}
+  audioSource: {fileID: 0}
+  enemyVoiceClip: {fileID: 0}
 --- !u!65 &7564568419334960569
 BoxCollider:
   m_ObjectHideFlags: 0
