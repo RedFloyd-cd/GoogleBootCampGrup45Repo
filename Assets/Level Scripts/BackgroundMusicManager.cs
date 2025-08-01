@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BackgroundMusicManager : MonoBehaviour
 {
@@ -17,17 +18,52 @@ public class BackgroundMusicManager : MonoBehaviour
 
     public float fadeDuration = 1.5f;
 
+    [Header("UI Controls (Optional)")]
+    public Slider musicSlider;
+    public Slider masterSlider;
+    public Toggle muteToggle;
+
+    private float targetMusicVolume = 0.8f;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            backgroundMusicSource.volume = 0.6f;
         }
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        // Load volume settings
+        targetMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        bool isMuted = PlayerPrefs.GetInt("IsMuted", 0) == 1;
+
+        backgroundMusicSource.mute = isMuted;
+        backgroundMusicSource.volume = isMuted ? 0f : targetMusicVolume;
+        AudioListener.volume = isMuted ? 0f : masterVolume;
+
+        // Setup UI if assigned
+        if (musicSlider != null)
+        {
+            musicSlider.value = targetMusicVolume;
+            musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
+
+        if (masterSlider != null)
+        {
+            masterSlider.value = masterVolume;
+            masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        }
+
+        if (muteToggle != null)
+        {
+            muteToggle.isOn = isMuted;
+            muteToggle.onValueChanged.AddListener(ToggleMute);
         }
     }
 
@@ -43,8 +79,6 @@ public class BackgroundMusicManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded: " + scene.name); // For debugging
-
         switch (scene.name)
         {
             case "Menu":
@@ -52,8 +86,8 @@ public class BackgroundMusicManager : MonoBehaviour
                 PlayMusic(menuMusicClip);
                 break;
 
-            case "MainStory": // Cutscene
-                StopMusic(); // silence during cutscene
+            case "MainStory": 
+                StopMusic();
                 break;
 
             case "TestREM01Map":
@@ -73,15 +107,17 @@ public class BackgroundMusicManager : MonoBehaviour
                 break;
 
             default:
-                StopMusic(); // fallback
+                StopMusic();
                 break;
         }
     }
 
-
     public void PlayMusic(AudioClip newClip)
     {
-        if (backgroundMusicSource.clip == newClip) return; // already playing
+        if (backgroundMusicSource.clip == newClip) return;
+
+        backgroundMusicSource.mute = PlayerPrefs.GetInt("IsMuted", 0) == 1;
+        targetMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
 
         StartCoroutine(FadeToNewMusic(newClip));
     }
@@ -104,7 +140,7 @@ public class BackgroundMusicManager : MonoBehaviour
     private IEnumerator FadeOutCoroutine()
     {
         float startVolume = backgroundMusicSource.volume;
-        float t = 0;
+        float t = 0f;
 
         while (t < fadeDuration)
         {
@@ -119,16 +155,52 @@ public class BackgroundMusicManager : MonoBehaviour
 
     private IEnumerator FadeInCoroutine()
     {
-        float t = 0;
-        backgroundMusicSource.volume = 0;
+        float t = 0f;
+        backgroundMusicSource.volume = 0f;
+
+        bool isMuted = PlayerPrefs.GetInt("IsMuted", 0) == 1;
+        float target = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
 
         while (t < fadeDuration)
         {
             t += Time.unscaledDeltaTime;
-            backgroundMusicSource.volume = Mathf.Lerp(0f, 1f, t / fadeDuration);
+            backgroundMusicSource.volume = isMuted ? 0f : Mathf.Lerp(0f, target, t / fadeDuration);
             yield return null;
         }
 
-        backgroundMusicSource.volume = 1f;
+        backgroundMusicSource.volume = isMuted ? 0f : target;
+    }
+
+    //  UI 
+
+    public void SetMusicVolume(float value)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        targetMusicVolume = value;
+
+        if (!backgroundMusicSource.mute)
+        {
+            backgroundMusicSource.volume = value;
+        }
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        PlayerPrefs.SetFloat("MasterVolume", value);
+        if (PlayerPrefs.GetInt("IsMuted", 0) == 0)
+            AudioListener.volume = value;
+    }
+
+    public void ToggleMute(bool mute)
+    {
+        PlayerPrefs.SetInt("IsMuted", mute ? 1 : 0);
+
+        backgroundMusicSource.mute = mute;
+        AudioListener.volume = mute ? 0f : PlayerPrefs.GetFloat("MasterVolume", 1f);
+
+        if (mute)
+            backgroundMusicSource.volume = 0f;
+        else
+            backgroundMusicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
     }
 }
