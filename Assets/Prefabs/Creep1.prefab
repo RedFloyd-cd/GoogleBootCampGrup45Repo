@@ -76,10 +76,10 @@ MonoBehaviour:
   target: {fileID: 0}
   detectionRadius: 20
   meleeRange: 2.5
-  moveSpeed: 6
-  attackCooldown: 1.2
+  moveSpeed: 4
+  attackCooldown: 1.25
   health: 150
-  meleeDamage: 30
+  meleeDamage: 15
   animator: {fileID: 3565406890657229171}
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   audioSource: {fileID: 0}

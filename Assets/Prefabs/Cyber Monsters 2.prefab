@@ -7238,15 +7238,15 @@ MonoBehaviour:
   detectionRadius: 20
   meleeRange: 2.5
   moveSpeed: 2
-  attackCooldown: 1.5
+  attackCooldown: 2.1
   health: 400
-  meleeDamage: 30
+  meleeDamage: 25
   areaAttackRadius: 5
-  areaAttackDamage: 45
+  areaAttackDamage: 20
   teleportCooldown: 2.5
   projectilePrefab: {fileID: 4043767558306964303, guid: 1c27e05a627fdbb4484ca4eeaf9baf5a, type: 3}
   projectileSpeed: 12
-  projectileDamage: 20
+  projectileDamage: 10
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 1713268194997763528}
   teleportAreaCenter: {x: 0, y: 0, z: 0}

@@ -332,8 +332,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4043767558306964303, guid: 1c27e05a627fdbb4484ca4eeaf9baf5a, type: 3}
   projectileSpeed: 8
   health: 200
-  meleeDamage: 25
-  rangedDamage: 15
+  meleeDamage: 20
+  rangedDamage: 10
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 6621719319578613356}
   audioSource: {fileID: 0}

@@ -819,7 +819,7 @@ MonoBehaviour:
   moveSpeed: 1.2
   attackCooldown: 3.5
   health: 300
-  areaAttackDamage: 40
+  areaAttackDamage: 25
   animator: {fileID: 642516005285460185}
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   audioSource: {fileID: 0}
