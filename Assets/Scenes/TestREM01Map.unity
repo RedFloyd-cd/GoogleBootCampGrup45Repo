@@ -6572,10 +6572,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 796602525411403181, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 799977753806144366, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Size.y
       value: 20
@@ -6891,10 +6887,6 @@ PrefabInstance:
     - target: {fileID: 2455119228594451902, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Layer
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457859363063428594, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2471348425975065058, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Size.y
@@ -7684,10 +7676,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6446610157038305052, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6446748206441887313, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -7992,10 +7980,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 18.51
       objectReference: {fileID: 0}
-    - target: {fileID: 7662337299554234586, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7666885196109003868, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -8212,10 +8196,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 9043067943516858585, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9059772958909237921, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -8257,7 +8237,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7751178365224208264, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 813779506}
     - targetCorrespondingSourceObject: {fileID: 808617543655974322, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       insertIndex: -1
