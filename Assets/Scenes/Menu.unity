@@ -2508,6 +2508,9 @@ MonoBehaviour:
   level4MusicClip: {fileID: 8300000, guid: 2747b5eaca3f2d3478e07f66e4425e17, type: 3}
   level5MusicClip: {fileID: 8300000, guid: c5f8b8c90bbc7ec42be8558aa40f65f8, type: 3}
   fadeDuration: 1.5
+  musicSlider: {fileID: 1294474330}
+  masterSlider: {fileID: 1984112685}
+  muteToggle: {fileID: 1001837840}
 --- !u!82 &619725441
 AudioSource:
   m_ObjectHideFlags: 0
