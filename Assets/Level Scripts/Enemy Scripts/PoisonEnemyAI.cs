@@ -145,6 +145,7 @@ public class PoisonEnemyAI : MonoBehaviour
     {
         if (isDead) return;
         health -= amount;
+        Debug.Log($"PoisonEnemy hasar aldı: {amount}, Kalan can: {health}");
         if (health <= 0)
         {
             Die();
@@ -156,7 +157,7 @@ public class PoisonEnemyAI : MonoBehaviour
         if (isDead) return;
         isDead = true;
         if (animator != null) animator.SetBool("isDead", true);
-        if (ammoPickupPrefab != null && Random.value <= 0.2f)
+        if (ammoPickupPrefab != null && Random.value <= 0.4f)
         {
             Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
         }

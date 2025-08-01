@@ -169,8 +169,8 @@ public class RangedEnemyAI : MonoBehaviour
         if (isDead) return;
         isDead = true;
         if (animator != null) animator.SetBool("isDead", true);
-        // %20 ihtimalle ammo drop
-        if (ammoPickupPrefab != null && Random.value <= 0.2f)
+        // %40 ihtimalle ammo drop
+        if (ammoPickupPrefab != null && Random.value <= 0.4f)
         {
             Instantiate(ammoPickupPrefab, transform.position, Quaternion.identity);
         }

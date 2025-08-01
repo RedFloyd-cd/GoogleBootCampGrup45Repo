@@ -159,10 +159,18 @@ public class BulletCollision : MonoBehaviour
 {
     private float damage;
     public void Init(float dmg) { damage = dmg; }
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
+        // PoisonEnemyAI
+        var poison = collision.gameObject.GetComponent<PoisonEnemyAI>();
+        if (poison != null)
+        {
+            poison.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
         // MeleeEnemyAI
-        var melee = other.GetComponent<MeleeEnemyAI>();
+        var melee = collision.gameObject.GetComponent<MeleeEnemyAI>();
         if (melee != null)
         {
             melee.TakeDamage(damage);
@@ -170,7 +178,7 @@ public class BulletCollision : MonoBehaviour
             return;
         }
         // RangedEnemyAI
-        var ranged = other.GetComponent<RangedEnemyAI>();
+        var ranged = collision.gameObject.GetComponent<RangedEnemyAI>();
         if (ranged != null)
         {
             ranged.TakeDamage(damage);
@@ -178,7 +186,7 @@ public class BulletCollision : MonoBehaviour
             return;
         }
         // MinibossAI
-        var miniboss = other.GetComponent<MinibossAI>();
+        var miniboss = collision.gameObject.GetComponent<MinibossAI>();
         if (miniboss != null)
         {
             miniboss.TakeDamage(damage);
@@ -186,7 +194,7 @@ public class BulletCollision : MonoBehaviour
             return;
         }
         // MinibossAI4
-        var miniboss4 = other.GetComponent<MinibossAI4>();
+        var miniboss4 = collision.gameObject.GetComponent<MinibossAI4>();
         if (miniboss4 != null)
         {
             miniboss4.TakeDamage(damage);
