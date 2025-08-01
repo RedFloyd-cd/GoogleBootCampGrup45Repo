@@ -6765,17 +6765,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 819126546}
     - target: {fileID: 7242979472923359428, guid: 4b93c729925422147b143383cbde61a7, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1231286605}
-    - target: {fileID: 7242979472923359428, guid: 4b93c729925422147b143383cbde61a7, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1555853054}
-    - target: {fileID: 7242979472923359428, guid: 4b93c729925422147b143383cbde61a7, type: 3}
-      propertyPath: enemyVoiceClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 7329686491362989478, guid: 4b93c729925422147b143383cbde61a7, type: 3}
       propertyPath: m_Layer
       value: 7

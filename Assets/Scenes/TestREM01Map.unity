@@ -1770,10 +1770,6 @@ PrefabInstance:
       propertyPath: gunshotClip
       value: 
       objectReference: {fileID: 8300000, guid: c0247e5dacda05648afd2378617eb4e8, type: 3}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: bulletDamage
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8354863712262803738, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5142,10 +5138,6 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3535432409212577661, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
-      propertyPath: health
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3535432409212577661, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1264797966}
@@ -6086,17 +6078,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1264797966}
     - target: {fileID: 8014062468754070463, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 55460490931292451}
-    - target: {fileID: 8014062468754070463, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 294610576}
-    - target: {fileID: 8014062468754070463, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
-      propertyPath: enemyVoiceClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 8033016832173066858, guid: 755d33ab9e542e84caf065fee9fb42d5, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -8007,10 +7991,6 @@ PrefabInstance:
     - target: {fileID: 7513854315978545198, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: m_Layer
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7519265586373164994, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
-      propertyPath: health
-      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 7519265586373164994, guid: ca0a8f22f91b34a40a7da267f197decc, type: 3}
       propertyPath: target

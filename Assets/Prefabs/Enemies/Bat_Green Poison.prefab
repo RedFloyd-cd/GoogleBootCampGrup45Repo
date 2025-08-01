@@ -260,7 +260,7 @@ MonoBehaviour:
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 5622884340370081896}
   audioSource: {fileID: 0}
-  enemyVoiceClip: {fileID: 0}
+  enemyVoiceClip: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
 --- !u!1 &1543822502134415190
 GameObject:
   m_ObjectHideFlags: 0

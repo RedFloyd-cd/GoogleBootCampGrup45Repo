@@ -1423,10 +1423,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c0247e5dacda05648afd2378617eb4e8, type: 3}
     - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: fireForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: reloadClip
       value: 
       objectReference: {fileID: 8300000, guid: 45ae9f13d62e59a438bbe7e79787a305, type: 3}
@@ -1434,10 +1430,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 935952530}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: bulletDamage
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8354863712262803738, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5469,17 +5461,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 935952528}
     - target: {fileID: 6180669904958501754, guid: 46f7d53174aacda4680cb70339708963, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1189157861}
-    - target: {fileID: 6180669904958501754, guid: 46f7d53174aacda4680cb70339708963, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 661286353}
-    - target: {fileID: 6180669904958501754, guid: 46f7d53174aacda4680cb70339708963, type: 3}
-      propertyPath: enemyVoiceClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 6207741292233006646, guid: 46f7d53174aacda4680cb70339708963, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -6164,14 +6148,6 @@ PrefabInstance:
       propertyPath: enemyVoiceClip
       value: 
       objectReference: {fileID: 8300000, guid: d59d0939ade426f41aea56c9644710be, type: 3}
-    - target: {fileID: 8934378994673747459, guid: 46f7d53174aacda4680cb70339708963, type: 3}
-      propertyPath: avoidanceStrength
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934378994673747459, guid: 46f7d53174aacda4680cb70339708963, type: 3}
-      propertyPath: obstacleLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 8939011397414082795, guid: 46f7d53174aacda4680cb70339708963, type: 3}
       propertyPath: m_Layer
       value: 7

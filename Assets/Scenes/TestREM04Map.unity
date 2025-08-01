@@ -3718,10 +3718,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c0247e5dacda05648afd2378617eb4e8, type: 3}
     - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: fireForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: reloadClip
       value: 
       objectReference: {fileID: 8300000, guid: 45ae9f13d62e59a438bbe7e79787a305, type: 3}
@@ -3729,10 +3725,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1885779411}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: bulletDamage
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8354863712262803738, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6932,17 +6924,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1885779409}
     - target: {fileID: 6698655259202238015, guid: a614598f7ecdc86409015f0ce500540d, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1695331982}
-    - target: {fileID: 6698655259202238015, guid: a614598f7ecdc86409015f0ce500540d, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 977168737}
-    - target: {fileID: 6698655259202238015, guid: a614598f7ecdc86409015f0ce500540d, type: 3}
-      propertyPath: enemyVoiceClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 6776195848275319902, guid: a614598f7ecdc86409015f0ce500540d, type: 3}
       propertyPath: m_Layer
       value: 7

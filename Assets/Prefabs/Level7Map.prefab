@@ -2096,6 +2096,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6181285844579412481, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4184930270819264329}
+    - target: {fileID: 6181285844579412481, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+      propertyPath: enemyVoiceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 8028591527625988821, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.146437
@@ -16866,6 +16874,11 @@ PrefabInstance:
 --- !u!4 &1977340931064477172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8028591527625988821, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+  m_PrefabInstance: {fileID: 8366461519506681633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4184930270819264329 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5622884340370081896, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
   m_PrefabInstance: {fileID: 8366461519506681633}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8922720051400274641 stripped

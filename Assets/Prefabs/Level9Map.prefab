@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6181285844579412481, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1427161268030233027}
     - target: {fileID: 8028591527625988821, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.513618
@@ -22521,6 +22525,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3093381764054673680}
   m_SourcePrefab: {fileID: 100100000, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+--- !u!95 &1427161268030233027 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5622884340370081896, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
+  m_PrefabInstance: {fileID: 6757145570931823019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3651712782256393086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8028591527625988821, guid: bd73278edd6341d4c8ba8c338a73c98f, type: 3}
@@ -26903,6 +26912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1335045988587937031}
     m_Modifications:
+    - target: {fileID: 743003827386924940, guid: 470e6d213312ad547b493f81463aec11, type: 3}
+      propertyPath: avoidanceStrength
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1637632940749864034, guid: 470e6d213312ad547b493f81463aec11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.213618

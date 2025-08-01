@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.15
+      value: 27.859
       objectReference: {fileID: 0}
     - target: {fileID: 1983661074522697610, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_LocalPosition.z
@@ -216,10 +216,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c0247e5dacda05648afd2378617eb4e8, type: 3}
     - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: fireForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: reloadClip
       value: 
       objectReference: {fileID: 8300000, guid: 45ae9f13d62e59a438bbe7e79787a305, type: 3}
@@ -227,10 +223,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1480108393}
-    - target: {fileID: 8186646575087013927, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
-      propertyPath: bulletDamage
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8354863712262803738, guid: 72149f9a740b48c4ba7cbcd2af791384, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2806,10 +2798,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 2038368345}
-    - target: {fileID: 1211722699687015347, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
-      propertyPath: enemyVoiceClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 1254193195134722471, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -2902,14 +2890,6 @@ PrefabInstance:
       propertyPath: enemyVoiceClip
       value: 
       objectReference: {fileID: 8300000, guid: d59d0939ade426f41aea56c9644710be, type: 3}
-    - target: {fileID: 2372705705604672005, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
-      propertyPath: avoidanceStrength
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2372705705604672005, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
-      propertyPath: obstacleLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 2400795802732935704, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -2978,6 +2958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level3Map
       objectReference: {fileID: 0}
+    - target: {fileID: 3656832368633087434, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3751076598579530657, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -3030,14 +3014,6 @@ PrefabInstance:
       propertyPath: enemyVoiceClip
       value: 
       objectReference: {fileID: 8300000, guid: d59d0939ade426f41aea56c9644710be, type: 3}
-    - target: {fileID: 4047184972306080252, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
-      propertyPath: avoidanceStrength
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047184972306080252, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
-      propertyPath: obstacleLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 4247223900204879620, guid: 93a634bfc68d0c64eba3ba8537f2a380, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -5241,7 +5217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4142411823680246802, guid: 08335227b0d8de84bb3491807d8c1a29, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4146062816111398950, guid: 08335227b0d8de84bb3491807d8c1a29, type: 3}
       propertyPath: m_Layer

@@ -13041,6 +13041,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6609236288256726482}
     m_Modifications:
+    - target: {fileID: 6712036103267179772, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2249327536144225495}
+    - target: {fileID: 6712036103267179772, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
+      propertyPath: enemyVoiceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f50d1f4c4edb7947a8f35e31910ce10, type: 3}
     - target: {fileID: 8195326707183086696, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7854295
@@ -19378,6 +19386,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5301274802957590395}
   m_SourcePrefab: {fileID: 100100000, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
+--- !u!95 &2249327536144225495 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4942297596105585582, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
+  m_PrefabInstance: {fileID: 6602741049398028153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2523071878431775322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8692622935450877219, guid: 3a2dd84954bffe24c83ae6d4de9bb35e, type: 3}
