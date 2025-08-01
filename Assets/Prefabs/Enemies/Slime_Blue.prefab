@@ -75,9 +75,9 @@ MonoBehaviour:
   detectionRadius: 10
   attackRange: 2
   moveSpeed: 3
-  attackCooldown: 1.5
-  health: 175
-  damage: 30
+  attackCooldown: 2
+  health: 140
+  damage: 20
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 6855264609311368972}
   obstacleCheckDistance: 1.5

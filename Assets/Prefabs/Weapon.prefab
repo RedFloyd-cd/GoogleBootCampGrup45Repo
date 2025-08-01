@@ -106,7 +106,7 @@ MonoBehaviour:
   magazineSize: 8
   reloadTime: 1.5
   bulletDamage: 50
-  minFireDistance: 1.5
+  minFireDistance: 3
   ammoText: {fileID: 0}
   maxAmmo: 64
   audioSource: {fileID: 0}

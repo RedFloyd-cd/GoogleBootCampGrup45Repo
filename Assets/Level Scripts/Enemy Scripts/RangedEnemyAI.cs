@@ -158,6 +158,7 @@ public class RangedEnemyAI : MonoBehaviour
         if (isDead) return;
         // Bullet objesinden gelen hasar
         health -= amount;
+        Debug.Log($"RangedEnemy hasar aldı: {amount}, Kalan can: {health}");
         if (health <= 0)
         {
             Die();

@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 728933211358883745}
   m_Layer: 0
   m_Name: Slime_Yellow
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,9 +586,9 @@ MonoBehaviour:
   detectionRadius: 10
   attackRange: 2
   moveSpeed: 3
-  attackCooldown: 1.5
-  health: 120
-  damage: 20
+  attackCooldown: 2
+  health: 100
+  damage: 10
   ammoPickupPrefab: {fileID: 6587562853507891416, guid: 2996d655654806e43bc8c2d38c580d92, type: 3}
   animator: {fileID: 0}
   obstacleCheckDistance: 1.5

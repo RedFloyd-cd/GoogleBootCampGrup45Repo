@@ -210,6 +210,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if (isDead) return;
         // Bullet objesinden gelen hasar
         health -= amount;
+        Debug.Log($"MeleeEnemy hasar aldı: {amount}, Kalan can: {health}");
         if (health <= 0)
         {
             Die();

@@ -8130,6 +8130,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1583284376987798569}
     m_Modifications:
+    - target: {fileID: 1842424334588557738, guid: 16aef3f53a9af15499af9a09ff9cd50b, type: 3}
+      propertyPath: health
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842424334588557738, guid: 16aef3f53a9af15499af9a09ff9cd50b, type: 3}
+      propertyPath: attackCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842424334588557738, guid: 16aef3f53a9af15499af9a09ff9cd50b, type: 3}
+      propertyPath: areaAttackDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842424334588557738, guid: 16aef3f53a9af15499af9a09ff9cd50b, type: 3}
+      propertyPath: teleportCooldown
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3802584514514404703, guid: 16aef3f53a9af15499af9a09ff9cd50b, type: 3}
       propertyPath: m_Name
       value: Cyber Monsters 2

@@ -1109,6 +1109,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.07
       objectReference: {fileID: 0}
+    - target: {fileID: 5448941455966824510, guid: ccf372123fa4a1d4fa876fd519ec3b93, type: 3}
+      propertyPath: health
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448941455966824510, guid: ccf372123fa4a1d4fa876fd519ec3b93, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448941455966824510, guid: ccf372123fa4a1d4fa876fd519ec3b93, type: 3}
+      propertyPath: attackCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448941455966824510, guid: ccf372123fa4a1d4fa876fd519ec3b93, type: 3}
+      propertyPath: areaAttackDamage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6916355513540483865, guid: ccf372123fa4a1d4fa876fd519ec3b93, type: 3}
       propertyPath: m_Name
       value: URP - Giant01 - Golem
@@ -11163,6 +11179,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7634672311391678772}
     m_Modifications:
+    - target: {fileID: 743003827386924940, guid: 470e6d213312ad547b493f81463aec11, type: 3}
+      propertyPath: avoidanceStrength
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1637632940749864034, guid: 470e6d213312ad547b493f81463aec11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.238916

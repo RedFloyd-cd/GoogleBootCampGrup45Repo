@@ -16958,8 +16958,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
       propertyPath: meleeRange
@@ -16968,6 +16972,14 @@ PrefabInstance:
     - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
       propertyPath: meleeDamage
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
+      propertyPath: attackCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428915602037142617, guid: aee9509194539c34e9f6da8633094837, type: 3}
+      propertyPath: detectionRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5401102426689392179, guid: aee9509194539c34e9f6da8633094837, type: 3}
       propertyPath: m_Name

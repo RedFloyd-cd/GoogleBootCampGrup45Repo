@@ -161,10 +161,13 @@ public class BulletCollision : MonoBehaviour
     public void Init(float dmg) { damage = dmg; }
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"Mermi çarptı: {collision.gameObject.name}");
+        
         // PoisonEnemyAI
         var poison = collision.gameObject.GetComponent<PoisonEnemyAI>();
         if (poison != null)
         {
+            Debug.Log($"PoisonEnemy'ye çarptı, hasar: {damage}");
             poison.TakeDamage(damage);
             Destroy(gameObject);
             return;

@@ -105103,6 +105103,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5656532112036705947}
     m_Modifications:
+    - target: {fileID: 1376106184372993920, guid: 5bb0ac11470940c41b6249c68eb10cf1, type: 3}
+      propertyPath: meleeDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376106184372993920, guid: 5bb0ac11470940c41b6249c68eb10cf1, type: 3}
+      propertyPath: rangedDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5328008593242600061, guid: 5bb0ac11470940c41b6249c68eb10cf1, type: 3}
       propertyPath: m_Name
       value: Miniboss Skeleton
