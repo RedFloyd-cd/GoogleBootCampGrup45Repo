@@ -171,10 +171,11 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 # Sprint 3
 
 - Bir önceki sprintte belirlenen hedeflerin hepsi başarıyla gerçekleştirilmiştir.
-- Toplam sprintte tamamlanması gereken puan 60 başarıyla tamamlanmıştır.
-- Oyun içinde kullanılan assetlerin bir kısmı tasarlandı bir kısmı ise ücretsiz assetlerden kullanıldı. Ücretsiz asset linkleri Miro'da yer almaktadır.
-- Oyun içi sesler, Suno ve ElevenLabs AI araçları vasıtasıyla oluşturulmuştur.
-- Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmaya devam edilmiştir.
+- Toplam sprintte tamamlanması gereken puan başarıyla tamamlanmıştır.
+- Oyun içinde kullanılan assetlerin bir kısmı tasarlandı bir kısmı ise ücretsiz assetlerden kullanıldı. Ücretsiz asset linkleri [Miro'da](https://miro.com/welcomeonboard/WUw3MjZtTStiakJ5UTR3OGRWbXY0cFFMZDJENDRxaVNHNkp3M01nenEyMlB1U2FUMUo0dURUbUgzMUhlU2Rha1V5d3VkUGZBVXFQQ1Y1MXdUREVUWmFyNjE0MUI2eGI0alRjNGsxRUtiS2RzRUZIWGV6Ynh1Y3dJZXpuOEZjYzR3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=485769080026) yer almaktadır.
+- Oyun içi sesler, Suno, Freesound ve ElevenLabs AI araçları vasıtasıyla oluşturulmuştur.
+- Daily Scrum toplantıları genellikle Whatsapp üzerinden yapılmaya devam edilmiştir.
+<img width="1106" height="774" alt="Sprint3" src="https://github.com/user-attachments/assets/4bd26013-7a37-4621-9f08-db81e44f01d0" />
 
 <details>
   
