@@ -260,3 +260,4 @@ Teşekkür ederiz!
 <img width="264" height="83" alt="Son" src="https://github.com/user-attachments/assets/eac58315-c975-4fd2-be7f-6a07149edb96" />
 
 # PsycoREM Video
+[<img width="1567" height="874" alt="Thumb" src="https://github.com/user-attachments/assets/1dd54164-6d62-4bd8-ac2b-4e12337d08aa" />](https://www.youtube.com/watch?v=6BjCCEWEi9I)
