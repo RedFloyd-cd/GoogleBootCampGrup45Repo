@@ -174,13 +174,14 @@ Psişik bir ajanlık biriminde görevli oyuncu, zihinsel çöküş yaşayan bir 
 - Toplam sprintte tamamlanması gereken puan başarıyla tamamlanmıştır.
 - Oyun içinde kullanılan assetlerin bir kısmı tasarlandı bir kısmı ise ücretsiz assetlerden kullanıldı. Ücretsiz asset linkleri [Miro'da](https://miro.com/welcomeonboard/WUw3MjZtTStiakJ5UTR3OGRWbXY0cFFMZDJENDRxaVNHNkp3M01nenEyMlB1U2FUMUo0dURUbUgzMUhlU2Rha1V5d3VkUGZBVXFQQ1Y1MXdUREVUWmFyNjE0MUI2eGI0alRjNGsxRUtiS2RzRUZIWGV6Ynh1Y3dJZXpuOEZjYzR3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=485769080026) yer almaktadır.
 - Oyun içi sesler, Suno, Freesound ve ElevenLabs AI araçları vasıtasıyla oluşturulmuştur.
-- Daily Scrum toplantıları genellikle Whatsapp üzerinden yapılmaya devam edilmiştir.
+- Daily Scrum toplantıları genellikle Slack ve Whatsapp üzerinden yapılmaya devam edilmiştir.
 <img width="1106" height="774" alt="Sprint3" src="https://github.com/user-attachments/assets/4bd26013-7a37-4621-9f08-db81e44f01d0" />
 
 <details>
   
   <summary> Görüşmelerin Ekran Görüntüleri </summary>
-
+  
+<img width="1682" height="1032" alt="image" src="https://github.com/user-attachments/assets/cdd53a1f-700e-42a1-8918-96636dd0ea6b" />
 <img width="726" height="489" alt="5" src="https://github.com/user-attachments/assets/49cc6640-b056-4817-8d51-84d984a5b45e" />
 <img width="715" height="648" alt="4" src="https://github.com/user-attachments/assets/2bfde01c-b9bb-42f9-b575-ccddf052afc8" />
 <img width="719" height="698" alt="2" src="https://github.com/user-attachments/assets/2963b191-31d4-487a-af04-b0fff47107c5" />
